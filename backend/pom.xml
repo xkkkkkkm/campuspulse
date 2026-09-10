@@ -75,7 +75,7 @@
                 <executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>
             </plugin>
             <plugin>
-                <groupId>org.jacoco</groupId><artifactId>jacoco-maven-plugin</artifactId><version>0.8.14</version>
+                <groupId>org.jacoco</groupId><artifactId>jacoco-maven-plugin</artifactId><version>0.8.15</version>
                 <configuration><sourceEncoding>UTF-8</sourceEncoding><outputEncoding>UTF-8</outputEncoding></configuration>
                 <executions>
                     <execution><goals><goal>prepare-agent</goal></goals></execution>
