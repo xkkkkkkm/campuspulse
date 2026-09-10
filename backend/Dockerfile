@@ -5,7 +5,7 @@ RUN --mount=type=cache,target=/root/.m2 mvn -B -ntp -f backend/pom.xml dependenc
 COPY backend/src backend/src
 RUN --mount=type=cache,target=/root/.m2 mvn -B -ntp -f backend/pom.xml package -DskipTests
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/* \
     && groupadd -g 10001 campus && useradd -u 10001 -g campus -M campus \
