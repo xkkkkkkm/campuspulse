@@ -1,0 +1,295 @@
+app:
+  description: CampusPulse 智能客服，支持多轮记忆、知识库检索、知识不匹配兜底和转人工说明。
+  icon: 🤖
+  icon_background: '#EAF3FF'
+  mode: advanced-chat
+  name: CampusPulse 智能客服
+  use_icon_as_answer_icon: true
+dependencies: []
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+    opening_statement: 你好，我是 CampusPulse 智能客服。你可以咨询注册登录、邮箱验证码、活动报名、组队申请、消息通知、个人中心和后台管理等问题。
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+      - 怎么报名活动？
+      - 收不到邮箱验证码怎么办？
+      - 队伍满员后还能管理吗？
+      - 通知中心怎么只看未读？
+      - 我要转人工客服
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+  graph:
+    edges:
+      - data:
+          sourceType: start
+          targetType: if-else
+        id: start-to-human-check
+        source: start
+        sourceHandle: source
+        target: human-check
+        targetHandle: target
+        type: custom
+      - data:
+          sourceType: if-else
+          targetType: answer
+        id: human-check-to-human-answer
+        source: human-check
+        sourceHandle: 'true'
+        target: human-answer
+        targetHandle: target
+        type: custom
+      - data:
+          sourceType: if-else
+          targetType: knowledge-retrieval
+        id: human-check-to-knowledge
+        source: human-check
+        sourceHandle: 'false'
+        target: knowledge-retrieval
+        targetHandle: target
+        type: custom
+      - data:
+          sourceType: knowledge-retrieval
+          targetType: llm
+        id: knowledge-to-final-llm
+        source: knowledge-retrieval
+        sourceHandle: source
+        target: final-llm
+        targetHandle: target
+        type: custom
+      - data:
+          sourceType: llm
+          targetType: answer
+        id: final-llm-to-answer
+        source: final-llm
+        sourceHandle: source
+        target: final-answer
+        targetHandle: target
+        type: custom
+    nodes:
+      - data:
+          desc: 用户输入
+          selected: false
+          title: 开始
+          type: start
+          variables: []
+        height: 90
+        id: start
+        position:
+          x: 80
+          y: 280
+        positionAbsolute:
+          x: 80
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          cases:
+            - case_id: 'true'
+              conditions:
+                - comparison_operator: contains
+                  id: c1
+                  value: 人工
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+                - comparison_operator: contains
+                  id: c2
+                  value: 真人
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+                - comparison_operator: contains
+                  id: c3
+                  value: 管理员
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+                - comparison_operator: contains
+                  id: c4
+                  value: 转人工
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+                - comparison_operator: contains
+                  id: c5
+                  value: 审批结果
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+                - comparison_operator: contains
+                  id: c6
+                  value: 我的账号
+                  varType: string
+                  variable_selector:
+                    - sys
+                    - query
+              id: 'true'
+              logical_operator: or
+          desc: 用户主动请求人工，或涉及具体账号/审批隐私，直接转人工。
+          selected: false
+          title: 人工/隐私意图判断
+          type: if-else
+        height: 220
+        id: human-check
+        position:
+          x: 380
+          y: 225
+        positionAbsolute:
+          x: 380
+          y: 225
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 260
+      - data:
+          answer: 这个问题需要人工处理。请点击项目客服页面里的“转人工服务”按钮，系统会把你的问题发送给管理员；你也可以继续补充账号、活动名、队伍名和问题截图等背景信息。
+          desc: 转人工兜底说明
+          selected: false
+          title: 转人工说明
+          type: answer
+          variables: []
+        height: 132
+        id: human-answer
+        position:
+          x: 730
+          y: 110
+        positionAbsolute:
+          x: 730
+          y: 110
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 300
+      - data:
+          dataset_ids: []
+          desc: 导入后必须在这里绑定 CampusPulse 使用帮助知识库。
+          multiple_retrieval_config:
+            reranking_enable: false
+            top_k: 6
+          query_variable_selector:
+            - sys
+            - query
+          retrieval_mode: multiple
+          selected: false
+          title: 知识库检索
+          type: knowledge-retrieval
+        height: 132
+        id: knowledge-retrieval
+        position:
+          x: 730
+          y: 360
+        positionAbsolute:
+          x: 730
+          y: 360
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 280
+      - data:
+          context:
+            enabled: true
+            variable_selector:
+              - knowledge-retrieval
+              - result
+          desc: 在一个节点内完成知识库匹配判断和最终回答，避免跨节点变量引用错误。
+          memory:
+            query_prompt_template: '{{#sys.query#}}'
+            role_prefix:
+              assistant: 智能客服
+              user: 用户
+            window:
+              enabled: true
+              size: 10
+          model:
+            completion_params:
+              temperature: 0.15
+            mode: chat
+            name: deepseek-v4-flash
+            provider: deepseek
+          prompt_template:
+            - id: system-prompt
+              role: system
+              text: |-
+                你是 CampusPulse 校园活动与组队平台的智能客服。
+                你只回答平台使用相关问题，包括账号、邮箱验证码、活动、报名、组队、消息、通知、个人中心、后台管理、推荐与搜索。
+                你必须优先依据知识库检索结果回答，不允许编造平台不存在的功能。
+                如果知识库检索结果为空，或检索内容与用户问题不匹配，必须回复：这个问题需要人工处理，请点击项目客服页面里的“转人工服务”按钮。
+                如果用户问题涉及具体账号数据、审批结果、隐私、数据库状态、密钥或支付，必须回复：这个问题需要人工处理，请点击项目客服页面里的“转人工服务”按钮。
+                如果知识库能支撑答案，请给出简洁、明确、可操作的步骤。
+                不要输出 ANSWER、ESCALATE、JSON、变量名或模板语法。
+            - id: user-prompt
+              role: user
+              text: |-
+                用户问题：{{#sys.query#}}
+
+                知识库检索结果：
+                {{#context#}}
+
+                请直接输出最终给用户看的回答。
+          selected: false
+          title: 知识库质检回答
+          type: llm
+          variables: []
+          vision:
+            enabled: false
+        height: 190
+        id: final-llm
+        position:
+          x: 1080
+          y: 330
+        positionAbsolute:
+          x: 1080
+          y: 330
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 340
+      - data:
+          answer: '{{#final-llm.text#}}'
+          desc: 输出最终回答。若导入后变量未解析，请删除本节点并从 LLM 节点重新添加“直接回复”，用变量选择器选择 LLM 输出文本。Dify 1.14.1 的 LLM 输出通常是 text。
+          selected: false
+          title: 直接回复
+          type: answer
+          variables: []
+        height: 120
+        id: final-answer
+        position:
+          x: 1510
+          y: 360
+        positionAbsolute:
+          x: 1510
+          y: 360
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 280
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.75

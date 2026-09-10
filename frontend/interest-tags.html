@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="兴趣标签管理 - CampusPulse">兴趣标签管理 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="profile.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="兴趣标签管理">兴趣标签管理</span>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="animate-fade-up" style="max-width: 680px; margin: 0 auto;">
+            <h2 style="font-size: 28px; margin-bottom: 8px;" data-i18n="告诉我们你的偏好">告诉我们你的偏好</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;" data-i18n="推荐会优先展示与你兴趣更匹配的活动，你也可以随时调整。">推荐会优先展示与你兴趣更匹配的活动，你也可以随时调整。</p>
+
+            <div class="form-group">
+                <label data-i18n="可选标签（可多选）">可选标签（可多选）</label>
+                <div id="interestChoices" style="display:flex; gap:10px; flex-wrap: wrap; background: white; border-radius: 20px; padding: 14px 16px; border: 1px solid rgba(0,0,0,0.06);"></div>
+                <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-left: 4px;" data-i18n="* 选择后会用于推荐排序">* 选择后会用于推荐排序</p>
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="已选择">已选择</label>
+                <div id="interestBox" style="padding: 14px 16px; background: white; border-radius: 20px; min-height: 64px;"></div>
+                <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-left: 4px;" data-i18n="* 点击 × 可移除">* 点击 × 可移除</p>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 28px;">
+                <a href="profile.html" class="secondary-btn" style="flex: 1;" data-i18n="稍后再说">稍后再说</a>
+                <button id="interestSaveBtn" class="primary-btn" style="flex: 2;" data-i18n="保存并返回">保存并返回</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

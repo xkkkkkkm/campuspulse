@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="管理后台 - CampusPulse">管理后台 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="profile.html" style="text-decoration: none; color: var(--accent-color); font-weight: 600;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="CampusPulse 管理后台">CampusPulse 管理后台</span>
+            </div>
+            <button id="adminRefreshBtn" class="secondary-btn" style="width:auto; padding: 10px 14px; font-size: 14px;" data-i18n="刷新">刷新</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="admin-hero animate-fade-up">
+            <div>
+                <div class="admin-eyebrow">Operations Console</div>
+                <h1 data-i18n="用户治理、活动治理与运营配置">用户治理、活动治理与运营配置</h1>
+                <p data-i18n="统一管理用户发布的活动、平台用户状态、精选露出和标签体系。视觉与用户端保持同一套简洁卡片语言，便于答辩时展示完整产品闭环。">统一管理用户发布的活动、平台用户状态、精选露出和标签体系。视觉与用户端保持同一套简洁卡片语言，便于答辩时展示完整产品闭环。</p>
+                <div class="admin-hero-points">
+                    <span class="badge-pill" data-i18n="活动上下架">活动上下架</span>
+                    <span class="badge-pill" data-i18n="用户详情抽屉">用户详情抽屉</span>
+                    <span class="badge-pill" data-i18n="精选权重配置">精选权重配置</span>
+                    <span class="badge-pill" data-i18n="标签体系维护">标签体系维护</span>
+                </div>
+            </div>
+            <div class="admin-hero-side">
+                <div class="admin-hero-metric">
+                    <div class="admin-hero-metric-label" data-i18n="活跃活动">活跃活动</div>
+                    <div class="admin-hero-metric-value" id="statPublishedActivities">-</div>
+                </div>
+                <div class="admin-hero-metric">
+                    <div class="admin-hero-metric-label" data-i18n="停用账号">停用账号</div>
+                    <div class="admin-hero-metric-value" id="statDisabledUsers">-</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-stats animate-fade-up" style="animation-delay: 0.04s;">
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="用户总数">用户总数</div>
+                <div class="stat-value" id="statUsers">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="活动总数">活动总数</div>
+                <div class="stat-value" id="statActivities">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="队伍总数">队伍总数</div>
+                <div class="stat-value" id="statTeams">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="报名记录">报名记录</div>
+                <div class="stat-value" id="statRegistrations">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="消息总量">消息总量</div>
+                <div class="stat-value" id="statMessages">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label" data-i18n="精选活动">精选活动</div>
+                <div class="stat-value" id="statFeatured">-</div>
+            </div>
+        </section>
+
+        <section class="admin-grid admin-grid-main">
+            <div class="admin-panel admin-panel-wide animate-fade-up" style="animation-delay: 0.08s;">
+                <div class="panel-head">
+                    <div>
+                        <h2 data-i18n="活动治理">活动治理</h2>
+                        <p data-i18n="统一管理用户发布的活动，支持搜索、筛选、查看详情、设为精选、下架和恢复上架。">统一管理用户发布的活动，支持搜索、筛选、查看详情、设为精选、下架和恢复上架。</p>
+                    </div>
+                    <div class="panel-actions">
+                        <input id="adminActivityKeyword" type="text" placeholder="搜索活动标题 / 地点 / 发布人" data-i18n-placeholder="搜索活动标题 / 地点 / 发布人">
+                        <select id="adminActivityAudit">
+                            <option value="" data-i18n="全部审核状态">全部审核状态</option>
+                            <option value="APPROVED" data-i18n="已通过">已通过</option>
+                            <option value="PENDING" data-i18n="待审核">待审核</option>
+                            <option value="REJECTED" data-i18n="已拒绝">已拒绝</option>
+                        </select>
+                        <select id="adminActivityLifecycle">
+                            <option value="" data-i18n="全部活动状态">全部活动状态</option>
+                            <option value="PUBLISHED" data-i18n="展示中">展示中</option>
+                            <option value="CANCELLED" data-i18n="已下架">已下架</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="adminActivityList" class="stack-list"></div>
+            </div>
+
+            <div class="admin-panel animate-fade-up" style="animation-delay: 0.12s;">
+                <div class="panel-head">
+                    <div>
+                        <h2 data-i18n="用户治理">用户治理</h2>
+                        <p data-i18n="检索用户后可查看发布活动、队伍参与和报名记录，支持账号启停。">检索用户后可查看发布活动、队伍参与和报名记录，支持账号启停。</p>
+                    </div>
+                    <div class="panel-actions">
+                        <input id="adminUserKeyword" type="text" placeholder="搜索昵称 / 学号 / 账号" data-i18n-placeholder="搜索昵称 / 学号 / 账号">
+                        <select id="adminUserRole">
+                            <option value="" data-i18n="全部角色">全部角色</option>
+                            <option value="USER" data-i18n="普通用户">普通用户</option>
+                            <option value="ORGANIZER" data-i18n="组织者">组织者</option>
+                            <option value="ADMIN" data-i18n="管理员">管理员</option>
+                        </select>
+                        <select id="adminUserStatus">
+                            <option value="" data-i18n="全部状态">全部状态</option>
+                            <option value="1" data-i18n="启用">启用</option>
+                            <option value="0" data-i18n="停用">停用</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="adminUserList" class="stack-list"></div>
+            </div>
+        </section>
+
+        <section class="admin-grid">
+            <div class="admin-panel animate-fade-up" style="animation-delay: 0.16s;">
+                <div class="panel-head">
+                    <div>
+                        <h2 data-i18n="精选活动运营位">精选活动运营位</h2>
+                        <p data-i18n="给重点活动设置权重，用于首页与推荐流优先露出。">给重点活动设置权重，用于首页与推荐流优先露出。</p>
+                    </div>
+                    <button id="adminAddFeaturedBtn" class="secondary-btn" data-i18n="新增精选">新增精选</button>
+                </div>
+                <div id="adminFeaturedList" class="stack-list"></div>
+            </div>
+
+            <div class="admin-panel animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="panel-head">
+                    <div>
+                        <h2 data-i18n="标签体系">标签体系</h2>
+                        <p data-i18n="维护首页分类与活动标签，保证用户侧浏览和推荐的一致性。">维护首页分类与活动标签，保证用户侧浏览和推荐的一致性。</p>
+                    </div>
+                    <button id="adminAddTagBtn" class="secondary-btn" data-i18n="新增标签">新增标签</button>
+                </div>
+                <div id="adminTagList" class="tag-cloud admin-tag-cloud"></div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

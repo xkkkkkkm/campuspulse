@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="发起项目 - 校园活动与组队平台">发起项目 - 校园活动与组队平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="home.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                 <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="发起项目">发起项目</span>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </header>
+    <main>
+        <div class="publish-form animate-fade-up" style="max-width: 600px; margin: 0 auto; padding: 20px 0;">
+            <h2 style="font-size: 28px; margin-bottom: 8px;" data-i18n="发起校园活动或组队">发起校园活动或组队</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px;" data-i18n="填写以下信息，寻找志同道合的伙伴">填写以下信息，寻找志同道合的伙伴</p>
+            <div id="publishTopHint" style="display:flex; align-items:center; justify-content: space-between; gap: 12px; margin-bottom: 18px; padding: 12px 14px; border-radius: 18px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05);">
+                <div style="font-size: 12px; color: var(--text-secondary);" data-i18n="已开启自动保存草稿">已开启自动保存草稿</div>
+                <button id="clearDraftBtn" class="secondary-btn" style="width:auto; padding: 8px 12px; border-radius: 14px; font-size: 13px;" data-i18n="清除草稿">清除草稿</button>
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="发布类型">发布类型</label>
+                <div style="display:flex; gap: 10px;">
+                    <button id="publishTypeActivity" class="primary-btn" style="width:auto; padding: 10px 14px; font-size: 14px;" data-i18n="发布活动">发布活动</button>
+                    <button id="publishTypeTeam" class="secondary-btn" style="width:auto; padding: 10px 14px; font-size: 14px;" data-i18n="发起组队">发起组队</button>
+                </div>
+                <input id="publishType" type="hidden" value="activity">
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="快速模板">快速模板</label>
+                <div id="publishTemplates" style="display:flex; gap: 10px; flex-wrap: wrap; background: white; border-radius: 18px; padding: 12px 14px; border: 1px solid rgba(0,0,0,0.06);"></div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-left: 4px;" data-i18n="* 先选发布类型，再选择适合的模板，系统会自动填充标题、标签和描述">* 先选发布类型，再选择适合的模板，系统会自动填充标题、标签和描述</div>
+            </div>
+
+            <div class="publish-preview-card" id="publishPreview"></div>
+
+            <div class="form-group">
+                <label data-i18n="活动/组队名称">活动/组队名称</label>
+                <input id="pubTitle" type="text" placeholder="起一个吸引人的标题..." data-i18n-placeholder="起一个吸引人的标题...">
+            </div>
+
+            <div id="activityCoverGroup" class="form-group">
+                <label data-i18n="上传宣传图（可选）">上传宣传图（可选）</label>
+                <div class="upload-container">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p data-i18n="点击或拖拽上传精美海报">点击或拖拽上传精美海报</p>
+                        <img src="" alt="Preview" class="upload-preview" id="previewImg">
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-left: 4px;" data-i18n="* 优质的图片能让你的项目更具吸引力，建议比例 16:9">* 优质的图片能让你的项目更具吸引力，建议比例 16:9</p>
+                </div>
+            </div>
+
+            <div id="activityTimeGroup" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div id="pubStartWrap" class="form-group">
+                    <label id="pubStartLabel" data-i18n="开始时间">开始时间</label>
+                    <input id="pubStart" type="datetime-local">
+                </div>
+                <div id="pubEndWrap" class="form-group">
+                    <label data-i18n="结束时间">结束时间</label>
+                    <input id="pubEnd" type="datetime-local">
+                </div>
+            </div>
+
+            <div id="activityLocationGroup" class="form-group">
+                <label data-i18n="地点">地点</label>
+                <input id="pubLoc" type="text" placeholder="具体的举办地点" data-i18n-placeholder="具体的举办地点">
+            </div>
+
+            <div id="activityTeamingGroup" class="form-group">
+                <label data-i18n="活动联动设置">活动联动设置</label>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; background:white; border-radius:18px; padding:14px 16px; border:1px solid rgba(0,0,0,0.06);">
+                    <div>
+                        <div style="font-size:15px; font-weight:650;" data-i18n="允许围绕该活动发起组队">允许围绕该活动发起组队</div>
+                        <div style="font-size:12px; color:var(--text-secondary); margin-top:4px;" data-i18n="开启后，活动详情页会显示相关队伍，并允许同学围绕活动发起组队。">开启后，活动详情页会显示相关队伍，并允许同学围绕活动发起组队。</div>
+                    </div>
+                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:13px; color:var(--text-secondary);">
+                        <input id="pubTeamingEnabled" type="checkbox" checked=""><span data-i18n="已开启">
+                        已开启
+                    </span></label>
+                </div>
+            </div>
+
+            <div id="activityMaxGroup" class="form-group">
+                <label data-i18n="最大参与人数">最大参与人数</label>
+                <input id="pubMax" type="number" placeholder="请输入人数上限（选填）" data-i18n-placeholder="请输入人数上限（选填）">
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="活动标签（必选，可多选）">活动标签（必选，可多选）</label>
+                <div id="tagChoices" style="display:flex; gap:10px; flex-wrap: wrap; background: white; border-radius: 18px; padding: 12px 14px; border: 1px solid rgba(0,0,0,0.06);"></div>
+                <input id="pubTags" type="hidden" value="">
+                <div id="tagHint" style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; padding-left: 4px;" data-i18n="* 至少选择 1 个标签">* 至少选择 1 个标签</div>
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="详细描述">详细描述</label>
+                <textarea id="pubDesc" placeholder="描述你的活动或组队要求，让更多人加入我们..." data-i18n-placeholder="描述你的活动或组队要求，让更多人加入我们..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 40px;">
+                <a href="home.html" class="secondary-btn" style="flex: 1;" data-i18n="取消发起">取消发起</a>
+                <button id="publishBtn" class="primary-btn" style="flex: 2; background: var(--text-primary);" data-i18n="立即发布">立即发布</button>
+            </div>
+            <div id="publishHint" style="font-size: 12px; color: var(--text-secondary); margin-top: 10px; padding-left: 4px;"></div>
+        </div>
+    </main>
+
+    <script type="module" src="assets/js/pages/cover-selection.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

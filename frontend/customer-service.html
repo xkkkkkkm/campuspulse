@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="智能客服 - CampusPulse">智能客服 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=20260518support1">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a id="supportBackLink" href="home.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="icons"><i class="fa-solid fa-headset"></i></div>
+        </div>
+    </header>
+
+    <main class="support-page">
+        <section class="support-hero animate-fade-up">
+            <div>
+                <div class="support-kicker">CampusPulse Helpdesk</div>
+                <h1 data-i18n="智能客服">智能客服</h1>
+                <p data-i18n="可以咨询注册登录、邮箱验证码、活动报名、组队申请、消息通知、个人中心和后台管理等使用问题。">可以咨询注册登录、邮箱验证码、活动报名、组队申请、消息通知、个人中心和后台管理等使用问题。</p>
+            </div>
+            <div class="support-status" id="supportStatus" data-i18n="随时为你提供帮助">随时为你提供帮助</div>
+        </section>
+
+        <section class="support-chat-panel animate-fade-up">
+            <div class="support-quick-list" id="supportQuickList">
+                <button type="button" data-question="收不到邮箱验证码怎么办？" data-i18n="收不到邮箱验证码怎么办？">收不到邮箱验证码怎么办？</button>
+                <button type="button" data-question="队伍满员后还能管理吗？" data-i18n="队伍满员后还能管理吗？">队伍满员后还能管理吗？</button>
+                <button type="button" data-question="通知中心怎么只看未读？" data-i18n="通知中心怎么只看未读？">通知中心怎么只看未读？</button>
+                <button type="button" data-escalate="true" data-i18n="转人工服务">转人工服务</button>
+            </div>
+            <div class="support-chat-toolbar"><div id="supportHistoryControls" class="support-history-controls" hidden><label for="supportConversationSelect" data-i18n="历史会话">历史会话</label><select id="supportConversationSelect"></select><button id="supportHistoryRefreshBtn" class="secondary-btn" type="button" data-i18n="刷新">刷新</button></div><button id="supportClearBtn" class="secondary-btn" type="button" data-i18n="清空会话">清空会话</button></div>
+            <div class="support-chat-list" id="supportChatList" role="log" aria-live="polite" aria-relevant="additions" data-i18n-label="客服会话"></div>
+            <form class="support-input-bar" id="supportForm">
+                <input id="supportInput" type="text" maxlength="500" placeholder="输入你遇到的问题，例如：怎么换绑邮箱？" data-i18n-placeholder="输入你遇到的问题，例如：怎么换绑邮箱？">
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i><span data-i18n="发送">发送</span></button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

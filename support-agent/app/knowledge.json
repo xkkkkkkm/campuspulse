@@ -1,0 +1,111 @@
+{
+  "version": "2026-09-10",
+  "description": "Reviewed CampusPulse product guides. URLs point to the corresponding application workflow, not remotely fetched evidence. No live account or activity data.",
+  "entries": [
+    {
+      "id": "account-registration", "url": "/register.html",
+      "reviewedAgainst": ["frontend/assets/js/pages/register.js", "backend/src/main/java/com/campuspulse/auth/AuthController.java"],
+      "keywords": ["注册", "创建账号", "注册账号", "register", "registration account", "sign up", "signup", "create account", "create an account"],
+      "zh-CN": {"title": "邮箱验证注册", "facts": ["打开注册页面，填写学号、姓名、邮箱和密码，获取邮箱验证码后提交。", "密码长度为 8–128 位，必须同时包含大写字母、小写字母、数字和符号。", "学号和邮箱不能重复使用；头像会在账号创建成功后上传，头像上传失败时可到个人中心重试。"]},
+      "en-US": {"title": "Register with email verification", "facts": ["Open the registration page, enter your student number, name, email and password, request an email code, then submit the form.", "Passwords must be 8–128 characters and include an uppercase letter, a lowercase letter, a digit and a symbol.", "Student numbers and emails must be unique; your avatar uploads after the account is created, and a failed avatar upload can be retried from your profile."]}
+    },
+    {
+      "id": "account-login", "url": "/login.html",
+      "reviewedAgainst": ["backend/src/main/java/com/campuspulse/auth/AuthController.java", "backend/src/main/java/com/campuspulse/auth/EmailCodeService.java"],
+      "keywords": ["登录", "登陆", "验证码", "收不到邮件", "邮箱验证码", "login", "log in", "sign in", "verification code", "email code", "email verification", "cannot receive email"],
+      "zh-CN": {"title": "登录与邮箱验证码", "facts": ["可以使用用户名或学号和密码登录，也可使用已绑定且验证过的邮箱接收验证码登录。", "邮箱验证码有有效期，重复发送存在冷却时间；请检查邮箱地址、垃圾邮件和页面提示，避免连续重试。", "多次输错密码会触发暂时锁定；可稍后重试或使用绑定邮箱找回密码。平台没有短信验证码登录流程。"]},
+      "en-US": {"title": "Sign in and email codes", "facts": ["Sign in with your username or student number and password, or request a sign-in code using your bound, verified email address.", "Email codes expire and repeat requests have a cooldown; check the address, spam folder and page notice before retrying.", "Repeated incorrect passwords can temporarily lock sign-in; wait or reset your password through your bound email. SMS verification sign-in is not implemented."]}
+    },
+    {
+      "id": "account-password", "url": "/login.html",
+      "reviewedAgainst": ["backend/src/main/java/com/campuspulse/auth/AuthController.java", "frontend/assets/js/pages/profile.js"],
+      "keywords": ["密码", "找回密码", "忘记密码", "重置密码", "修改密码", "password", "forgot password", "reset password", "change password", "password requirements"],
+      "zh-CN": {"title": "找回或修改密码", "facts": ["忘记密码时，在登录页使用已绑定邮箱获取验证码，验证后设置新密码。", "已登录用户可在个人中心通过邮箱验证码修改密码，需要先绑定并验证邮箱。", "新密码长度为 8–128 位，必须包含大写字母、小写字母、数字和符号；修改后需要重新登录。", "不要向客服提供密码或验证码；无法访问绑定邮箱时，请提交支持工单描述问题。"]},
+      "en-US": {"title": "Reset or change your password", "facts": ["If you forgot your password, use the reset flow on the login page, verify a code sent to your bound email, and choose a new password.", "Signed-in users can change their password from their profile using email verification; a verified, bound email is required.", "New passwords must be 8–128 characters with uppercase and lowercase letters, a digit and a symbol; sign in again after changing your password.", "Never send support your password or verification code; submit a support ticket if you cannot access your bound email."]}
+    },
+    {
+      "id": "activity-discovery", "url": "/activity-lobby.html",
+      "reviewedAgainst": ["docs/api.md", "frontend/assets/js/pages/activity-lobby.js"],
+      "keywords": ["活动", "活动大厅", "搜索活动", "查找活动", "活动筛选", "收藏活动", "activity", "activities", "event", "events", "activity lobby", "find activities", "search activities", "filter activities", "favorite activity", "browse activities"],
+      "zh-CN": {"title": "发现和收藏活动", "facts": ["在活动大厅通过关键词、分类或标签查找活动，打开详情查看时间、地点、活动介绍和报名入口。", "登录后可收藏活动，并在个人中心查看相关记录；活动列表支持分页。", "未发布或不可见的活动不会作为公开活动展示。"]},
+      "en-US": {"title": "Find and save activities", "facts": ["Use the activity lobby to search by keyword, category or tag, then open an activity to see its time, location, description and registration action.", "After signing in, save activities as favorites and review your records from your profile; activity lists are paginated.", "Unpublished or otherwise hidden activities are not shown as public activities."]}
+    },
+    {
+      "id": "activity-registration", "url": "/activity-lobby.html",
+      "reviewedAgainst": ["docs/api.md", "frontend/assets/js/pages/activity-detail.js"],
+      "keywords": ["报名", "活动报名", "参加活动", "参与活动", "取消报名", "撤回报名", "报名审核", "activity registration", "event registration", "register for an activity", "register for activity", "register for an event", "register for event", "join an activity", "participate in an activity", "cancel registration", "sign up for an activity", "registration pending", "报名失败"],
+      "zh-CN": {"title": "活动报名与审核", "facts": ["登录后打开活动详情，填写姓名、电话、学院等报名资料并提交，随后等待发布者审核。", "提交申请不代表审核通过；请在详情页或个人记录中查看当前状态。", "待审核申请可以撤回，已通过报名可以取消；活动状态和人数限制由系统检查。", "报名被拒绝后，页面允许时可以修改资料重新提交；客服不能代替发布者审批。"]},
+      "en-US": {"title": "Activity registration and approval", "facts": ["Sign in, open the activity details, enter the registration information such as name, phone and college, and submit it for organizer approval.", "Submitting an application does not mean it has been approved; check the activity page or your profile records for its current status.", "You can withdraw a pending application or cancel an approved registration; the system checks activity state and capacity.", "After rejection, update your information and resubmit when the page allows it; the support assistant cannot approve applications for the organizer."]}
+    },
+    {
+      "id": "activity-publishing", "url": "/publish-activity.html",
+      "reviewedAgainst": ["docs/api.md"],
+      "keywords": ["发布活动", "创建活动", "活动审核", "活动发布", "publish activity", "publish an activity", "create activity", "create an activity", "activity review", "organizer"],
+      "zh-CN": {"title": "发布和管理活动", "facts": ["登录后可发布活动，填写标题、地点、开始时间、名额、描述和标签，也可选择封面与是否支持组队。", "新建活动进入待审核状态，由管理员审核；发布者可管理自己活动的报名申请。", "编辑时若出现数据已变更的冲突提示，请刷新详情后再提交。"]},
+      "en-US": {"title": "Publish and manage activities", "facts": ["After signing in, create an activity with a title, location, start time, capacity, description and tags; optionally add a cover and enable teaming.", "New activities enter pending review for an administrator; organizers manage applications for their own activities.", "If an edit reports a conflict because the record changed, refresh its details before submitting again."]}
+    },
+    {
+      "id": "team-membership", "url": "/team-lobby.html",
+      "reviewedAgainst": ["docs/api.md"],
+      "keywords": ["组队", "加入队伍", "组队申请", "创建队伍", "申请队伍", "队伍审核", "team", "teams", "join a team", "team application", "create team", "teaming"],
+      "zh-CN": {"title": "组队申请和审核", "facts": ["在组队大厅查找队伍，登录后填写申请留言并提交，等待队长审核。", "待处理的入队申请可以取消；审批会检查队伍状态和剩余名额。", "也可以创建队伍，填写标题、介绍、人数上限和标签，并按需要关联活动。", "入队申请与活动报名是不同流程，加入队伍不会自动完成活动报名。"]},
+      "en-US": {"title": "Apply to or create a team", "facts": ["Find a team in the team lobby, sign in, submit an application message and wait for the captain to review it.", "Pending join requests can be cancelled; approval checks the team's current state and remaining capacity.", "You can also create a team with a title, description, member limit and tags, optionally linked to an activity.", "Joining a team and registering for an activity are separate processes; joining a team does not automatically register you for the activity."]}
+    },
+    {
+      "id": "team-lifecycle", "url": "/team-lobby.html",
+      "reviewedAgainst": ["frontend/assets/js/core/team-lifecycle.js", "docs/api.md"],
+      "keywords": ["退出队伍", "退出组队", "转让队长", "关闭队伍", "解散队伍", "移除成员", "leave team", "leave a team", "leave my team", "transfer captain", "transfer leadership", "close team", "remove member"],
+      "zh-CN": {"title": "退出队伍与转让队长", "facts": ["普通成员可以退出队伍，退出后若想再次加入需要重新申请。", "队长需要先把队长身份转让给现有成员，才能退出队伍。", "有管理权限的用户可移除成员或关闭队伍；关闭后停止招募并保留队伍和聊天记录。"]},
+      "en-US": {"title": "Leave a team or transfer leadership", "facts": ["Members can leave a team and must apply again to rejoin later.", "The captain must transfer leadership to an existing member before leaving.", "Authorized managers can remove members or close a team; closing stops recruitment and preserves the team and chat records."]}
+    },
+    {
+      "id": "chat-access", "url": "/chat.html",
+      "reviewedAgainst": ["docs/api.md", "frontend/README.md"],
+      "keywords": ["私聊", "聊天", "群聊", "消息历史", "已读", "收不到消息", "chat", "direct message", "messaging", "group chat", "chat history", "read receipt"],
+      "zh-CN": {"title": "聊天权限与消息记录", "facts": ["私聊需要登录；队伍群聊要求当前有效成员身份，活动群聊需要先由组织者开启。", "活动群聊向已通过报名的参与者、组织者及管理员开放，队伍或活动的当前状态也影响访问权限。", "聊天页先加载最近消息，可以继续加载更早记录；重新连接后会补拉新消息，页面也会更新已读状态。"]},
+      "en-US": {"title": "Chat access and message history", "facts": ["Direct messages require sign-in; team chat requires active membership, and activity chat must first be enabled by the organizer.", "Enabled activity chat is available to approved participants, the organizer and administrators; current activity or team state also affects access.", "Chat initially loads recent messages and lets you load earlier history; reconnecting catches up on new messages and the page updates read status."]}
+    },
+    {
+      "id": "chat-images", "url": "/chat.html",
+      "reviewedAgainst": ["docs/api.md", "frontend/assets/js/pages/chat.js"],
+      "keywords": ["图片", "发送图片", "聊天图片", "上传图片", "私聊图片", "图片失败", "image", "images", "send image", "upload image", "chat image", "photo", "attachment"],
+      "zh-CN": {"title": "私有聊天图片", "facts": ["在聊天页选择图片，预览后确认发送；支持 PNG、JPEG 和 GIF，默认聊天图片大小不超过 10 MiB。", "服务器校验并转为 PNG，动画和原始元数据不会保留；另有像素和个人存储配额限制。", "聊天图片必须登录并通过会话权限检查才能查看，直接复制图片地址给无权限的人不能获得访问权。", "图片无法加载时请检查登录和会话权限；头像默认大小限制为 5 MiB，聊天图片和活动封面默认限制为 10 MiB。"]},
+      "en-US": {"title": "Private chat images", "facts": ["Choose an image in chat, review its preview and confirm sending; PNG, JPEG and GIF are supported, with a default chat image limit of 10 MiB.", "The server validates and converts images to PNG, removing animation and original metadata; pixel and per-user storage limits also apply.", "Viewing chat images requires sign-in and conversation authorization; sharing an image URL does not grant another person access.", "If an image cannot load, check sign-in and conversation access; avatars default to 5 MiB while chat images and activity covers default to 10 MiB."]}
+    },
+    {
+      "id": "notifications", "url": "/notifications.html",
+      "reviewedAgainst": ["backend/src/main/java/com/campuspulse/notification/NotificationController.java", "docs/api.md"],
+      "keywords": ["通知", "通知中心", "未读通知", "消息通知", "notification", "notifications", "unread notice", "mark read"],
+      "zh-CN": {"title": "通知中心", "facts": ["登录后在通知中心查看自己的通知，支持分页、单条标记已读、全部标记已读以及删除自己的通知。", "审核相关通知用于了解处理进展，最终报名或入队状态应以对应活动或队伍页面为准。", "客服不能读取你的私人通知或替你更改通知状态。"]},
+      "en-US": {"title": "Notifications", "facts": ["Sign in to view your notifications; the list supports pagination, marking one or all notices as read, and deleting your own notices.", "Review notices help you track progress; check the corresponding activity or team page for the current application state.", "The assistant cannot read your private notifications or change their status for you."]}
+    },
+    {
+      "id": "recommendations", "url": "/home.html",
+      "reviewedAgainst": ["README.zh-CN.md", "ml/README.md"],
+      "keywords": ["推荐", "个性化", "兴趣标签", "推荐不准", "recommendation", "recommendations", "recommend", "recommended", "personalized", "interests", "interest tags"],
+      "zh-CN": {"title": "推荐与兴趣设置", "facts": ["首页推荐综合兴趣、热度、时间和剩余名额；登录并完善个人兴趣标签有助于个性化展示。", "部署了有效的离线模型时，推荐可组合历史转化模型分数；数据不足或模型不可用时继续使用规则推荐。", "推荐不保证报名成功或一定符合个人偏好，报名仍受活动状态、名额和审核限制。"]},
+      "en-US": {"title": "Recommendations and interests", "facts": ["Home recommendations consider interests, popularity, timing and remaining capacity; signing in and updating your interest tags helps personalize discovery.", "A valid deployed offline model can contribute historical conversion scores; insufficient data or an unavailable model leaves rule-based recommendations in use.", "Recommendations do not guarantee acceptance or a match to personal preferences; registration still depends on activity state, capacity and approval."]}
+    },
+    {
+      "id": "support-tickets", "url": "/customer-service.html",
+      "reviewedAgainst": ["frontend/assets/js/core/support-tickets.js", "backend/src/main/java/com/campuspulse/support/SupportTicketController.java"],
+      "keywords": ["工单", "人工", "客服", "联系客服", "投诉", "处理进度", "ticket", "tickets", "human support", "human agent", "contact support", "escalate", "complaint"],
+      "zh-CN": {"title": "支持工单与人工处理", "facts": ["登录后可在客服页提交支持工单，描述发生的页面、操作步骤和错误提示，不要填写密码或验证码。", "在支持工单列表查看回复和处理状态，并可在未关闭的工单中继续回复。", "管理员可以回复并将工单标记为待处理、处理中或已关闭；客服回答只是建议，不会自动创建工单或修改账号。"]},
+      "en-US": {"title": "Support tickets and human assistance", "facts": ["After signing in, submit a support ticket from the customer service page with the affected page, steps and error message; do not include passwords or verification codes.", "Use the support ticket list to read replies and status, and add a reply while a ticket remains open.", "Administrators can reply and set a ticket to Open, In progress or Closed; assistant answers are guidance and never create a ticket or modify an account automatically."]}
+    },
+    {
+      "id": "language", "url": "/home.html",
+      "reviewedAgainst": ["frontend/README.md"],
+      "keywords": ["语言", "切换语言", "英文", "中文", "翻译", "language", "english", "chinese", "translate", "translation", "locale"],
+      "zh-CN": {"title": "界面语言", "facts": ["使用页面语言选择器切换简体中文或英语，选择会保存在当前浏览器中。", "界面、日期和客服回复可随语言选择变化；用户填写的活动描述、姓名、聊天消息等内容不会自动翻译。"]},
+      "en-US": {"title": "Interface language", "facts": ["Use the page language selector to switch between Simplified Chinese and English; the choice is saved in the current browser.", "The interface, date formatting and support replies follow the selected language; user-authored activity descriptions, names and chat messages are not automatically translated."]}
+    },
+    {
+      "id": "profile", "url": "/profile.html",
+      "reviewedAgainst": ["frontend/assets/js/pages/profile.js", "docs/api.md"],
+      "keywords": ["个人中心", "个人资料", "修改资料", "头像", "绑定邮箱", "profile", "avatar", "edit profile", "bind email", "my records"],
+      "zh-CN": {"title": "个人资料与记录", "facts": ["登录后在个人中心查看报名、收藏和组队记录，并编辑个人资料、头像和兴趣标签。", "绑定邮箱需要完成邮箱验证码验证，已绑定邮箱可用于验证码登录、找回密码和修改密码。", "只修改公开资料不会代替报名表单，报名时仍需填写对应活动要求的信息。"]},
+      "en-US": {"title": "Profile and personal records", "facts": ["After signing in, use your profile to review registrations, favorites and team records, and edit your profile, avatar and interest tags.", "Binding an email requires verification; a bound, verified email can be used for code-based sign-in and password recovery or changes.", "Editing your public profile does not replace an activity registration form; enter the information requested for that activity when applying."]}
+    }
+  ]
+}

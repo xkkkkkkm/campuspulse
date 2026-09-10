@@ -1,0 +1,10 @@
+# Runtime pins. Use Python 3.11–3.13; install only inside a virtual environment.
+pymysql==1.1.2
+cryptography==50.0.1
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+joblib==1.5.3
+threadpoolctl==3.6.0
+cffi==2.0.0
+pycparser==3.0

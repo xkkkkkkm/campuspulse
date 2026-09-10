@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="个人中心 - CampusPulse">个人中心 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                 <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 17px; font-weight: 600;" data-i18n="个人中心">个人中心</span>
+            </div>
+            <div style="cursor: pointer; font-size: 20px;"><i class="fa-solid fa-gear"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-header animate-fade-up" style="flex-direction: column; text-align: center; padding: 40px 24px;">
+            <div style="position: relative; margin-bottom: 12px;">
+                <img id="profileAvatarImg" src="assets/images/avatar.svg" alt="Avatar" class="avatar" style="width: 100px; height: 100px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="position: absolute; bottom: -5px; right: -5px; background: var(--accent-color); color: white; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 3px solid white;">
+                    <i class="fa-solid fa-camera" style="font-size: 14px;"></i>
+                </div>
+            </div>
+            <div class="profile-info">
+                <h3 id="profileName" style="font-size: 26px; font-weight: 700; letter-spacing: -0.02em;">-</h3>
+                <p id="profileSub" style="font-size: 15px; color: var(--text-secondary); margin-top: 4px;">-</p>
+            </div>
+            <div style="margin-top: 12px;">
+                <button id="changeAvatarBtn" class="secondary-btn" style="padding: 8px 14px; font-size: 14px;" data-i18n="更换头像">更换头像</button>
+            </div>
+            <div style="display: flex; gap: 20px; margin-top: 24px; width: 100%; justify-content: center;">
+                <div style="text-align: center;">
+                    <div id="profileActCount" style="font-size: 18px; font-weight: 700;">0</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);" data-i18n="参与活动">参与活动</div>
+                </div>
+                <div style="height: 20px; width: 1px; background: #e0e0e0; align-self: center;"></div>
+                <div style="text-align: center;">
+                    <div id="profileTeamCount" style="font-size: 18px; font-weight: 700;">0</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);" data-i18n="参加组队">参加组队</div>
+                </div>
+                <div style="height: 20px; width: 1px; background: #e0e0e0; align-self: center;"></div>
+                <div style="text-align: center;">
+                    <div id="profileFavCount" style="font-size: 18px; font-weight: 700;">0</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);" data-i18n="我的收藏">我的收藏</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-list animate-fade-up" style="animation-delay: 0.1s; background: white; border-radius: 24px; padding: 8px;">
+            <a href="#" id="myActivitiesBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><polyline points="9 16 11 18 15 14"></polyline></svg><span data-i18n="我参加的活动">
+                    我参加的活动
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="#" id="myPublishedBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span data-i18n="我发布的活动">
+                    我发布的活动
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="admin.html" id="adminCenterBtn" class="menu-item" style="display:none;">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M8 10h8"></path><path d="M8 14h8"></path><path d="M8 18h5"></path></svg><span data-i18n="管理后台">
+                    管理后台
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="#" id="myJoinedTeamsBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span data-i18n="我参加的组队">
+                    我参加的组队
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="#" id="myCreatedTeamsBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M3 12h18"></path><path d="M12 3v18"></path><path d="M4 7h16"></path><path d="M6 21h12"></path></svg><span data-i18n="我发起的组队">
+                    我发起的组队
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="#" id="myFavoritesBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span data-i18n="我的收藏">
+                    我的收藏
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="interest-tags.html" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg><span data-i18n="兴趣标签管理">
+                    兴趣标签管理
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="profile-edit.html" id="editProfileBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg><span data-i18n="完善资料">
+                    完善资料
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a href="#" id="bindEmailBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg><span data-i18n="绑定邮箱">
+                    绑定邮箱
+                </span></div>
+                <div style="display:flex; align-items:center; gap: 10px;">
+                    <span id="emailStatus" style="color: var(--text-secondary); font-size: 12px;" data-i18n="未绑定">未绑定</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+            <a href="#" id="changePwdBtn" class="menu-item">
+                <div class="menu-item-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-right: 16px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span data-i18n="修改密码">
+                    修改密码
+                </span></div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="action-buttons animate-fade-up" style="animation-delay: 0.2s; margin-top: 32px;">
+             <button id="logoutBtn" class="secondary-btn" style="width: 100%; margin-top: 12px;" data-i18n="退出登录">退出登录</button>
+        </div>
+    </main>
+
+    <div id="profileDrawer" class="modal">
+        <div class="modal-content animate-fade-up" style="max-width: 520px; max-height: 82vh; display:flex; flex-direction:column;">
+            <div class="modal-header">
+                <h3 id="drawerTitle">-</h3>
+            </div>
+            <div class="modal-body" style="padding: 0; overflow: hidden; display:flex; flex-direction:column; min-height:0;">
+                <div class="menu-list" id="drawerBody" style="box-shadow: none; overflow-y:auto; max-height: calc(82vh - 180px);"></div>
+                <button id="closeDrawerBtn" class="secondary-btn" style="width: 100%; margin-top: 12px;" data-i18n="关闭">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html" class="active">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

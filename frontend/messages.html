@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="消息 - CampusPulse">消息 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 17px; font-weight: 600;" data-i18n="消息中心">消息中心</span>
+            </div>
+            <div style="cursor: pointer; font-size: 20px;"><i class="fa-regular fa-pen-to-square"></i></div>
+        </div>
+    </header>
+    <main>
+        <section class="animate-fade-up">
+            <h2 style="font-size: 22px;" data-i18n="私聊">私聊</h2>
+            <p style="color: var(--text-secondary); margin: 8px 0 14px;" data-i18n="与同学或活动发布者进行 1 对 1 沟通，活动联系入口会自动并入这里。">与同学或活动发布者进行 1 对 1 沟通，活动联系入口会自动并入这里。</p>
+            <div class="menu-list" id="dmThreadList" style="margin-bottom: 24px;"></div>
+            <div style="display:flex; gap: 12px;">
+                <button id="startDmBtn" class="secondary-btn" style="flex:1;" data-i18n="发起私聊">发起私聊</button>
+            </div>
+        </section>
+        <section class="animate-fade-up" style="animation-delay: 0.08s;">
+            <h2 style="font-size: 22px;" data-i18n="群聊">群聊</h2>
+            <p style="color: var(--text-secondary); margin: 8px 0 14px;" data-i18n="活动群聊和队伍群聊统一放在这里，消息页只负责沟通，不再承担管理入口。">活动群聊和队伍群聊统一放在这里，消息页只负责沟通，不再承担管理入口。</p>
+            <div class="menu-list" id="groupChatList" style="margin-bottom: 24px;"></div>
+        </section>
+        <section class="animate-fade-up" style="animation-delay: 0.2s;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+                <div>
+                    <h2 style="font-size: 22px;" data-i18n="通知预览">通知预览</h2>
+                    <p style="color: var(--text-secondary); margin: 8px 0 14px;" data-i18n="这里只保留最近几条通知，完整通知请进入通知中心处理。">这里只保留最近几条通知，完整通知请进入通知中心处理。</p>
+                </div>
+                <button id="notifMoreBtn" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="查看更多通知">查看更多通知</button>
+            </div>
+            <div class="menu-list" id="notifPreviewList"></div>
+        </section>
+    </main>
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html" class="active">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="通知中心 - CampusPulse">通知中心 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 17px; font-weight: 600;" data-i18n="通知中心">通知中心</span>
+            </div>
+            <a href="messages.html" style="color: var(--text-primary); font-size: 14px; text-decoration: none;" data-i18n="返回消息">返回消息</a>
+        </div>
+    </header>
+    <main>
+        <section class="animate-fade-up">
+            <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+                <div>
+                    <h2 style="font-size: 24px; margin-bottom: 6px;" data-i18n="全部通知">全部通知</h2>
+                    <p style="color: var(--text-secondary); margin: 0;" data-i18n="支持按已读状态筛选、单条删除和一键全部已读。">支持按已读状态筛选、单条删除和一键全部已读。</p>
+                </div>
+                <button id="notificationsReadAllBtn" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="一键全部已读">一键全部已读</button>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin: 18px 0 12px;">
+                <button type="button" data-notif-filter="all" class="secondary-btn active" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="全部">全部</button>
+                <button type="button" data-notif-filter="unread" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="未读">未读</button>
+                <button type="button" data-notif-filter="read" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="已读">已读</button>
+            </div>
+            <div id="notificationsPageList" style="display:grid; gap: 14px;"></div>
+            <div id="notificationsPageEmpty" class="stack-card" style="display:none; text-align:center; color: var(--text-secondary);" data-i18n="当前筛选条件下没有通知。">当前筛选条件下没有通知。</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top: 18px; flex-wrap:wrap;">
+                <button id="notificationsFirstBtn" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="首页">首页</button>
+                <button id="notificationsPrevBtn" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="上一页">上一页</button>
+                <div id="notificationsPageMeta" style="font-size: 13px; color: var(--text-secondary); text-align:center; flex:1 1 180px;" data-i18n="正在加载...">正在加载...</div>
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:center;">
+                    <input id="notificationsJumpInput" type="number" min="1" placeholder="页码" style="width:72px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.08); background: rgba(255,255,255,0.92);" data-i18n-placeholder="页码">
+                    <button id="notificationsJumpBtn" class="secondary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="跳转">跳转</button>
+                </div>
+                <button id="notificationsNextBtn" class="primary-btn" style="width:auto; padding: 10px 16px; border-radius: 14px;" data-i18n="下一页">下一页</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html" class="active">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

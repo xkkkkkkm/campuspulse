@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  security:
+    email-dev-mode: false
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

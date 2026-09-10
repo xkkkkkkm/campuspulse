@@ -1,0 +1,22 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "title": "校园 3v3 篮球巅峰赛",
+      "location": "东区体育馆",
+      "date": "2026-04-15",
+      "participants": 12,
+      "max_participants": 20,
+      "tags": ["竞技", "运动", "热门"]
+    },
+    {
+      "id": 2,
+      "title": "人工智能与未来社会",
+      "location": "图书馆报告厅",
+      "date": "2026-04-18",
+      "participants": 45,
+      "max_participants": 100,
+      "tags": ["科技", "讲座"]
+    }
+  ]
+}

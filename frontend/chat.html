@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="聊天 - 校园活动与组队平台">聊天 - 校园活动与组队平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body class="chat-page">
+    <header>
+        <div class="top-bar">
+            <a href="messages.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span id="chatTitle" style="font-size: 15px; font-weight: 600;" data-i18n="聊天">聊天</span>
+            </div>
+            <button id="chatManageBtn" type="button" class="secondary-btn" style="display:none; width:auto; padding:8px 12px; border-radius:12px;" data-i18n="成员管理">成员管理</button>
+        </div>
+    </header>
+
+    <main class="chat-container">
+        <div id="chatMessages" class="chat-messages"></div>
+        <button id="scrollBottomBtn" class="scroll-bottom-btn" aria-label="回到底部" data-i18n-label="回到底部"><i class="fa-solid fa-arrow-down"></i></button>
+    </main>
+
+    <div class="chat-input-area">
+        <div class="chat-input-wrap">
+
+            <input id="chatImageFile" type="file" accept="image/png,image/jpeg,image/gif" hidden>
+            <button id="chatImageBtn" class="chat-image-btn" type="button" aria-label="发送图片" data-i18n-label="发送图片"><i class="fa-regular fa-image" aria-hidden="true"></i></button>
+            <div class="chat-input-box">
+                <textarea id="chatInput" rows="1" maxlength="2000" placeholder="输入消息，按 Enter 发送，Shift+Enter 换行" data-i18n-placeholder="输入消息，按 Enter 发送，Shift+Enter 换行"></textarea>
+            </div>
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="发送" data-i18n-label="发送">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

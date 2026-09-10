@@ -1,0 +1,28 @@
+[
+  {
+    "type": "TEAM",
+    "key": "agent_team",
+    "owner": "wangyi",
+    "source": {
+      "title": "学术讲座｜智能体客服展示小组",
+      "description": "准备一个 LangGraph 知识库客服演示，缺负责流程图和测试问题整理的同学。"
+    },
+    "en": {
+      "title": "Academic Talks | AI Support Agent Demo Team",
+      "description": "Prepare a LangGraph knowledge-base support demo. We need help drawing flowcharts and organizing test questions."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "qa_team",
+    "owner": "wangyi",
+    "source": {
+      "title": "学术讲座｜智能客服测试小组",
+      "description": "围绕 LangGraph 客服准备常见问题、兜底问题和转人工测试用例。"
+    },
+    "en": {
+      "title": "Academic Talks | AI Support Testing Group",
+      "description": "Prepare common questions, fallback scenarios, and human handoff test cases for the LangGraph support assistant."
+    }
+  }
+]

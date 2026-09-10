@@ -1,0 +1,108 @@
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 100
+    connection-timeout: 10s
+spring:
+  application:
+    name: campuspulse
+  profiles:
+    default: demo
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/campus_pulse?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:campus_pulse}
+    password: ${DB_PASSWORD:campus_pulse_123}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      connection-timeout: 10000
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    clean-disabled: true
+    locations: classpath:db/migration
+  sql:
+    init:
+      mode: never
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+  jdbc:
+    template:
+      query-timeout: 5
+  task:
+    scheduling:
+      pool:
+        size: 2
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH:true}
+          starttls:
+            enable: ${MAIL_STARTTLS:true}
+          connectiontimeout: 5000
+          timeout: 10000
+          writetimeout: 10000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState,db
+  health:
+    mail:
+      enabled: false
+springdoc:
+  swagger-ui:
+    path: /api-docs-ui
+app:
+  upload:
+    root: ${APP_UPLOAD_ROOT:./runtime/uploads}
+    max-avatar-bytes: ${APP_UPLOAD_MAX_AVATAR_BYTES:5242880}
+    max-cover-bytes: ${APP_UPLOAD_MAX_COVER_BYTES:10485760}
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://127.0.0.1:8125,http://localhost:8125}
+  security:
+    token-secret: ${APP_SECURITY_TOKEN_SECRET:local-development-token-secret-change-me}
+    token-ttl-seconds: ${APP_SECURITY_TOKEN_TTL_SECONDS:7200}
+    email-from: ${APP_SECURITY_EMAIL_FROM:CampusPulse <no-reply@example.com>}
+    email-secret: ${APP_SECURITY_EMAIL_SECRET:local-development-email-secret}
+    email-dev-mode: ${APP_SECURITY_EMAIL_DEV_MODE:true}
+    email-code-ttl-seconds: 300
+    email-cooldown-seconds: 60
+    login-max-failed: 5
+    login-lock-minutes: 15
+  bootstrap:
+    admin-username: ${APP_ADMIN_USERNAME:}
+    admin-password: ${APP_ADMIN_PASSWORD:}
+    admin-email: ${APP_ADMIN_EMAIL:}
+  support:
+    agent-enabled: ${SUPPORT_AGENT_ENABLED:false}
+    agent-url: ${SUPPORT_AGENT_URL:http://127.0.0.1:8001}
+    agent-token: ${SUPPORT_AGENT_TOKEN:}
+    generation-enabled: ${SUPPORT_LLM_ENABLED:false}
+    max-daily-generations: ${SUPPORT_MAX_DAILY_GENERATIONS:100}
+
+logging:
+  structured:
+    format:
+      console: ecs
+  level:
+    root: INFO

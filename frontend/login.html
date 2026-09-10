@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="登录 - 校园活动与组队平台">登录 - 校园活动与组队平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body class="auth-body">
+    <main class="auth-page">
+        <div class="auth-layout animate-fade-up">
+            <section class="auth-hero">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="auth-hero-logo" data-i18n-alt="CampusPulse 标志">
+                <div class="auth-hero-text">
+                    <div class="auth-hero-university" data-i18n="苏州大学">苏州大学</div>
+                    <h1 class="auth-hero-title" data-i18n="欢迎回来">欢迎回来</h1>
+                    <div class="auth-hero-motto" data-i18n="继续探索校园精彩活动">继续探索校园精彩活动</div>
+                </div>
+            </section>
+
+            <section class="auth-card">
+                <div class="auth-card-header">
+                    <div class="auth-card-title" data-i18n="登录">登录</div>
+                    <div class="auth-card-subtitle" data-i18n="选择登录方式">选择登录方式</div>
+                </div>
+
+                <div style="display:flex; gap: 10px; margin-bottom: 14px;">
+                    <button id="tabPwd" class="primary-btn" style="width:auto; padding: 10px 14px; font-size: 14px; flex:1;" data-i18n="密码登录">密码登录</button>
+                    <button id="tabEmail" class="secondary-btn" style="width:auto; padding: 10px 14px; font-size: 14px; flex:1;" data-i18n="邮箱验证码登录">邮箱验证码登录</button>
+                </div>
+
+                <div id="pwdPanel" class="auth-input-group">
+                    <input id="loginUsername" type="text" placeholder="学号或用户名" autocomplete="username" data-i18n-placeholder="学号或用户名">
+                    <div style="position: relative;">
+                        <input id="loginPassword" type="password" maxlength="128" placeholder="密码" autocomplete="current-password" style="padding-right: 46px;" data-i18n-placeholder="密码">
+                        <i id="togglePwd" class="fa-regular fa-eye" style="position:absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); cursor:pointer;"></i>
+                    </div>
+                </div>
+
+                <div id="emailPanel" class="auth-input-group" style="display:none;">
+                    <input id="loginEmail" type="email" placeholder="已绑定邮箱" autocomplete="email" data-i18n-placeholder="已绑定邮箱">
+                    <div style="display:flex; gap: 10px;">
+                        <input id="emailCode" type="text" placeholder="6位验证码" inputmode="numeric" style="flex:1;" data-i18n-placeholder="6位验证码">
+                        <button id="emailSendBtn" class="secondary-btn" style="width:auto; padding: 12px 14px; font-size: 14px; border-radius: 14px;" data-i18n="发送验证码">发送验证码</button>
+                    </div>
+                    <div id="emailHint" style="font-size: 12px; color: var(--text-secondary); padding-left: 4px;"></div>
+                </div>
+
+                <button id="loginBtn" class="primary-btn" data-i18n="进入平台">进入平台</button>
+
+                <div class="auth-card-links">
+                    <a href="register.html" data-i18n="没有账号？去注册">没有账号？去注册</a>
+                    <a href="#" id="forgotPwdLink" data-i18n="忘记密码">忘记密码</a>
+                </div>
+
+                <div class="auth-card-footer">
+                    <span data-i18n="登录即代表您同意">登录即代表您同意</span>
+                    <a href="#" data-i18n="苏州大学校园网使用规范">苏州大学校园网使用规范</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="resetModal" class="modal">
+        <div class="modal-content animate-fade-up" style="max-width: 520px;">
+            <div class="modal-header">
+                <h3 data-i18n="找回密码">找回密码</h3>
+            </div>
+            <div class="modal-body">
+                <input id="resetEmail" type="email" placeholder="已绑定的邮箱" autocomplete="email" data-i18n-placeholder="已绑定的邮箱">
+                <div style="display:flex; gap: 10px;">
+                    <input id="resetCode" type="text" placeholder="6位验证码" inputmode="numeric" style="flex:1;" data-i18n-placeholder="6位验证码">
+                    <button id="resetSendBtn" class="secondary-btn" style="width:auto; padding: 12px 14px; font-size: 14px; border-radius: 14px;" data-i18n="发送验证码">发送验证码</button>
+                </div>
+                <div style="position: relative; margin-top: 12px;">
+                    <input id="resetNewPwd" type="password" maxlength="128" placeholder="设置新密码" autocomplete="new-password" style="padding-right: 46px;" data-i18n-placeholder="设置新密码">
+                    <i id="toggleResetPwd" class="fa-regular fa-eye" style="position:absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); cursor:pointer;"></i>
+                </div>
+                <div id="resetStrength" style="margin-top: 10px;"></div>
+                <input id="resetNewPwd2" type="password" maxlength="128" placeholder="确认新密码" autocomplete="new-password" style="margin-top: 10px;" data-i18n-placeholder="确认新密码">
+                <div id="resetHint" style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;"></div>
+                <button id="resetSubmitBtn" class="primary-btn" style="width: 100%; margin-top: 14px;" data-i18n="确认修改">确认修改</button>
+                <button id="resetCloseBtn" class="secondary-btn" style="width: 100%; margin-top: 12px;" data-i18n="取消">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

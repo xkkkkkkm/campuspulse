@@ -1,0 +1,1031 @@
+[
+  {
+    "type": "ACTIVITY",
+    "key": "ai",
+    "owner": "org",
+    "source": {
+      "title": "人工智能与未来社会",
+      "description": "围绕生成式 AI、校园场景应用与未来职业方向展开分享，现场设有提问互动与交流环节。",
+      "location": "独墅湖校区图书馆报告厅"
+    },
+    "en": {
+      "title": "AI and the Future of Society",
+      "description": "Explore generative AI, its applications on campus, and future career paths, with a live Q&A and networking session.",
+      "location": "Library Auditorium, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "basketball",
+    "owner": "chenze",
+    "source": {
+      "title": "校园 3v3 篮球巅峰赛",
+      "description": "面向全校开放的 3v3 篮球赛，欢迎班级或自由组队报名参加，现场有啦啦队与摄影记录。",
+      "location": "阳澄湖校区东区体育馆"
+    },
+    "en": {
+      "title": "Campus 3v3 Basketball Championship",
+      "description": "An open 3v3 basketball tournament for all students. Register as a class team or form your own team, with cheerleaders and photography on site.",
+      "location": "East Sports Hall, Yangcheng Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "volunteer",
+    "owner": "org",
+    "source": {
+      "title": "春季志愿者招募行动",
+      "description": "面向校内外社区服务点招募志愿者，主要负责秩序维护、引导和信息登记。",
+      "location": "天赐庄校区学生事务中心一楼"
+    },
+    "en": {
+      "title": "Spring Volunteer Recruitment",
+      "description": "Volunteer at community service locations on and off campus, helping with crowd management, directions, and registration.",
+      "location": "Student Services Center, Ground Floor, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "music",
+    "owner": "xuan",
+    "source": {
+      "title": "校园音乐夜",
+      "description": "草坪开放式音乐演出，欢迎同学们带上朋友一起参加，也欢迎报名成为现场志愿者。",
+      "location": "天赐庄校区钟楼前草坪"
+    },
+    "en": {
+      "title": "Campus Music Night",
+      "description": "An outdoor concert on the lawn. Bring your friends or sign up to volunteer at the event.",
+      "location": "Lawn in Front of the Clock Tower, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "startup_pending",
+    "owner": "songyutong",
+    "source": {
+      "title": "创新创业训练营",
+      "description": "两天一夜的项目路演工作坊，包含选题、答辩、BP 打磨和团队协作训练。",
+      "location": "独墅湖创新港 302"
+    },
+    "en": {
+      "title": "Innovation and Entrepreneurship Bootcamp",
+      "description": "A two-day, one-night project pitch workshop covering idea selection, presentation practice, business plans, and teamwork.",
+      "location": "Room 302, Dushu Lake Innovation Hub"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "resume",
+    "owner": "linzhixia",
+    "source": {
+      "title": "简历门诊与实习分享",
+      "description": "面向求职与实习准备同学的线下交流，包含简历一对一建议和岗位投递经验分享。",
+      "location": "天赐庄校区就业中心"
+    },
+    "en": {
+      "title": "Resume Clinic and Internship Sharing",
+      "description": "An in-person session for students preparing for jobs and internships, offering individual resume advice and application tips.",
+      "location": "Career Center, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "running",
+    "owner": "chenze",
+    "source": {
+      "title": "苏大夜跑打卡计划",
+      "description": "今晚开始的夜跑打卡活动，欢迎想规律运动、互相监督的同学加入。",
+      "location": "未来校区操场北门"
+    },
+    "en": {
+      "title": "Soochow University Night Run Challenge",
+      "description": "A night-running check-in challenge starting tonight. Join fellow students to build a regular exercise routine and keep each other motivated.",
+      "location": "North Gate of the Athletics Field, Future Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "postgrad_rejected",
+    "owner": "songyutong",
+    "source": {
+      "title": "保研经验面对面",
+      "description": "邀请往届学长姐分享保研材料准备、夏令营与面试经验。",
+      "location": "独墅湖校区学生活动中心 208"
+    },
+    "en": {
+      "title": "Graduate Admission Advice: Meet the Alumni",
+      "description": "Senior students and alumni share advice on recommendation-based graduate admission, application materials, summer camps, and interviews.",
+      "location": "Student Activity Center, Room 208, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "mind_cancelled",
+    "owner": "songyutong",
+    "source": {
+      "title": "心理减压工作坊",
+      "description": "面向期中周的减压工作坊，包含正念、呼吸练习和小组陪伴交流。",
+      "location": "天赐庄校区心理中心 302"
+    },
+    "en": {
+      "title": "Stress Relief Workshop",
+      "description": "A midterm stress relief workshop featuring mindfulness, breathing exercises, and supportive small-group conversations.",
+      "location": "Counseling Center, Room 302, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "long_title",
+    "owner": "songyutong",
+    "source": {
+      "title": "这是一场标题特别长特别长用于观察活动卡片和详情排版是否会出现换行错位与按钮挤压的跨校区交流工作坊",
+      "description": "这条活动数据专门用于观察超长标题、超长描述、跨校区地点与无封面图时，首页卡片、活动详情、管理页和通知里是否还保持清晰排版。活动内容包括跨校区交通、主持串场、资料领取和问答交流。",
+      "location": "天赐庄校区主会场 + 独墅湖校区分会场线上联动"
+    },
+    "en": {
+      "title": "An Extra-Long Cross-Campus Exchange Workshop Title for Checking Line Wrapping, Card Layout, and Button Spacing on Activity Pages",
+      "description": "This activity checks whether long titles, detailed descriptions, cross-campus venues, and missing cover images remain readable on home cards, detail pages, management pages, and notifications. The workshop covers campus transport, hosting, handouts, and Q&A.",
+      "location": "Main Venue at Tiancizhuang Campus + Online Link to Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "cv_teaming_closed",
+    "owner": "org",
+    "source": {
+      "title": "计算机视觉竞赛冲刺分享会",
+      "description": "围绕计算机视觉竞赛赛题复现、答辩准备和时间安排做最后冲刺分享。",
+      "location": "独墅湖校区创新港 501"
+    },
+    "en": {
+      "title": "Computer Vision Competition Sprint Session",
+      "description": "A final preparation session on reproducing computer vision competition solutions, preparing presentations, and planning your time.",
+      "location": "Innovation Hub, Room 501, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "old_chat_closed",
+    "owner": "linzhixia",
+    "source": {
+      "title": "旧群聊回看测试活动",
+      "description": "这个活动用于观察活动群聊关闭后，历史消息是否被保留，以及入口是否按预期消失。",
+      "location": "独墅湖校区公共教学楼 C102"
+    },
+    "en": {
+      "title": "Archived Group Chat Review Activity",
+      "description": "This activity checks that chat history is retained after activity chat closes and that its entry point disappears as expected.",
+      "location": "Teaching Building C, Room 102, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "math_full",
+    "owner": "songyutong",
+    "source": {
+      "title": "数学建模赛前密训",
+      "description": "比赛前的集中训练，包含题型拆解、LaTeX 写作和展示答辩。",
+      "location": "独墅湖校区理工楼 406"
+    },
+    "en": {
+      "title": "Mathematical Modeling Competition Intensive",
+      "description": "Focused pre-competition training in problem analysis, LaTeX writing, and presentation skills.",
+      "location": "Science and Engineering Building, Room 406, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "intl_lunch",
+    "owner": "songyutong",
+    "source": {
+      "title": "国际交流分享午餐会",
+      "description": "轻松的小型午餐交流，适合想练口语、结识交换生或了解留学申请的同学。",
+      "location": "天赐庄校区留学生之家"
+    },
+    "en": {
+      "title": "International Exchange Lunch",
+      "description": "A relaxed lunch for students who want to practice speaking, meet exchange students, or learn about studying abroad.",
+      "location": "International Student House, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "book_drive",
+    "owner": "org",
+    "source": {
+      "title": "24 小时公益捐书接力",
+      "description": "跨校区连续 24 小时捐书接力，适合验证正在进行中的活动展示和提醒逻辑。",
+      "location": "未来校区图书馆门口"
+    },
+    "en": {
+      "title": "24-Hour Charity Book Donation Relay",
+      "description": "A continuous 24-hour book donation relay across campuses, also used to verify ongoing activity displays and reminders.",
+      "location": "Library Entrance, Future Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "agent_workshop",
+    "owner": "wangyi",
+    "source": {
+      "title": "智能体应用工作坊",
+      "description": "从校园活动客服、推荐和自动化三个场景切入，现场拆解智能体应用设计方法。",
+      "location": "独墅湖校区创新港 205"
+    },
+    "en": {
+      "title": "AI Agent Application Workshop",
+      "description": "Explore AI agent design through campus activity support, recommendations, and automation, with practical examples explained on site.",
+      "location": "Innovation Hub, Room 205, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "deepseek_prompt",
+    "owner": "dongchen",
+    "source": {
+      "title": "DeepSeek 提示词实战课",
+      "description": "围绕课程汇报、论文阅读、代码辅助和知识库问答，演示如何写稳定提示词。",
+      "location": "天赐庄校区博远楼 301"
+    },
+    "en": {
+      "title": "Practical DeepSeek Prompting",
+      "description": "Learn to write reliable prompts for course presentations, paper reading, coding assistance, and knowledge-base Q&A.",
+      "location": "Boyuan Building, Room 301, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "data_story",
+    "owner": "maolin",
+    "source": {
+      "title": "校园数据分析可视化分享",
+      "description": "用真实校园活动数据讲解数据清洗、看板设计和推荐指标解读。",
+      "location": "独墅湖校区理工楼 308"
+    },
+    "en": {
+      "title": "Campus Data Analysis and Visualization",
+      "description": "Use real campus activity data to explore data cleaning, dashboard design, and recommendation metrics.",
+      "location": "Science and Engineering Building, Room 308, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "java_backend",
+    "owner": "dongchen",
+    "source": {
+      "title": "Java 后端接口联调夜校",
+      "description": "面向综合实践项目，集中解决登录、权限、分页、通知和接口联调问题。",
+      "location": "独墅湖校区公共教学楼 B204"
+    },
+    "en": {
+      "title": "Java API Integration Evening Workshop",
+      "description": "Resolve login, permissions, pagination, notifications, and API integration issues in your course project.",
+      "location": "Teaching Building B, Room 204, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "frontend_portfolio",
+    "owner": "yexiao",
+    "source": {
+      "title": "前端作品集打磨营",
+      "description": "从页面截图、交互讲解、答辩动线和代码亮点四个方面打磨项目展示。",
+      "location": "天赐庄校区传媒实验室"
+    },
+    "en": {
+      "title": "Frontend Portfolio Workshop",
+      "description": "Improve your project presentation through screenshots, interaction demos, presentation flow, and code highlights.",
+      "location": "Media Lab, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "mock_trial",
+    "owner": "xieyu",
+    "source": {
+      "title": "模拟法庭公开赛",
+      "description": "面向法学和公共管理同学开放，支持旁听、报名参赛和志愿协助。",
+      "location": "天赐庄校区法学院模拟法庭"
+    },
+    "en": {
+      "title": "Open Mock Trial Competition",
+      "description": "Open to law and public administration students, with opportunities to observe, compete, or volunteer.",
+      "location": "Mock Courtroom, Law School, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "language_corner",
+    "owner": "liyun",
+    "source": {
+      "title": "周五英语口语角",
+      "description": "轻松主题交流，适合想练口语、结识同伴和了解交换项目的同学。",
+      "location": "天赐庄校区留学生之家"
+    },
+    "en": {
+      "title": "Friday English Conversation Corner",
+      "description": "A relaxed themed conversation session for practicing English, meeting peers, and learning about exchange programs.",
+      "location": "International Student House, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "public_photo",
+    "owner": "yexiao",
+    "source": {
+      "title": "校园摄影扫街计划",
+      "description": "沿天赐庄老校区路线拍摄建筑、人像和活动纪实，结束后一起选片。",
+      "location": "天赐庄校区东门集合"
+    },
+    "en": {
+      "title": "Campus Photo Walk",
+      "description": "Photograph architecture, portraits, and campus life along a route through the historic Tiancizhuang campus, then review your photos together.",
+      "location": "Meet at the East Gate, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "choir_night",
+    "owner": "caixuan",
+    "source": {
+      "title": "草坪合唱排练夜",
+      "description": "开放式合唱排练，适合喜欢音乐但不想参加正式比赛的同学。",
+      "location": "天赐庄校区钟楼草坪"
+    },
+    "en": {
+      "title": "Lawn Choir Rehearsal Night",
+      "description": "An open choir rehearsal for students who enjoy music without the pressure of formal competition.",
+      "location": "Clock Tower Lawn, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "city_volunteer",
+    "owner": "fenglu",
+    "source": {
+      "title": "古城社区志愿导览",
+      "description": "面向游客提供路线引导和文化介绍，活动前会做统一培训。",
+      "location": "平江路志愿服务点"
+    },
+    "en": {
+      "title": "Old Town Volunteer Guides",
+      "description": "Help visitors with routes and local cultural information. Training is provided before the event.",
+      "location": "Pingjiang Road Volunteer Service Point"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "blood_drive",
+    "owner": "hanxu",
+    "source": {
+      "title": "医学部健康科普志愿日",
+      "description": "医学部同学带队进行健康科普、问卷收集和基础咨询引导。",
+      "location": "独墅湖校区医学楼广场"
+    },
+    "en": {
+      "title": "Medical School Health Outreach Day",
+      "description": "Join medical students in sharing health information, collecting questionnaires, and directing visitors to basic consultations.",
+      "location": "Medical Building Plaza, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "trail_walk",
+    "owner": "zhaoran",
+    "source": {
+      "title": "阳澄湖环湖徒步",
+      "description": "轻量徒步路线，适合想运动但不想高强度训练的同学。",
+      "location": "阳澄湖校区北门"
+    },
+    "en": {
+      "title": "Yangcheng Lake Lakeside Walk",
+      "description": "A gentle walking route for students who want to exercise without intensive training.",
+      "location": "North Gate, Yangcheng Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "badminton_open",
+    "owner": "zhaoran",
+    "source": {
+      "title": "羽毛球新手友好局",
+      "description": "不拼强度，主要练发球和双打轮转，欢迎零基础同学。",
+      "location": "阳澄湖校区体育馆 2 号场"
+    },
+    "en": {
+      "title": "Beginner-Friendly Badminton",
+      "description": "A relaxed session focused on serving and doubles rotation. Complete beginners are welcome.",
+      "location": "Court 2, Sports Hall, Yangcheng Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "career_panel",
+    "owner": "zhoumo",
+    "source": {
+      "title": "互联网实习校友圆桌",
+      "description": "邀请校友分享投递节奏、简历表达、面试准备和实习复盘。",
+      "location": "未来校区商学院报告厅"
+    },
+    "en": {
+      "title": "Tech Internship Alumni Roundtable",
+      "description": "Alumni share application timelines, resume tips, interview preparation, and lessons from their internships.",
+      "location": "Business School Auditorium, Future Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "startup_pitch",
+    "owner": "zhoumo",
+    "source": {
+      "title": "三分钟创业路演夜",
+      "description": "每组 3 分钟展示创意，现场同学和老师给出反馈。",
+      "location": "独墅湖创新港路演厅"
+    },
+    "en": {
+      "title": "Three-Minute Startup Pitch Night",
+      "description": "Each group has three minutes to present an idea and receive feedback from students and teachers.",
+      "location": "Pitch Hall, Dushu Lake Innovation Hub"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "paper_reading",
+    "owner": "wuyang",
+    "source": {
+      "title": "论文精读小组开放课",
+      "description": "以推荐系统和智能客服论文为样例，讲解如何读摘要、方法和实验。",
+      "location": "独墅湖校区图书馆研讨室 4"
+    },
+    "en": {
+      "title": "Research Paper Reading: Open Session",
+      "description": "Learn to read abstracts, methods, and experiments using papers on recommender systems and AI support assistants.",
+      "location": "Library Seminar Room 4, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "exam_room",
+    "owner": "zhengqiu",
+    "source": {
+      "title": "期末自习冲刺打卡",
+      "description": "连续两周晚间自习，按学院和考试科目自由分桌。",
+      "location": "独墅湖校区图书馆三楼"
+    },
+    "en": {
+      "title": "Final Exam Study Check-In",
+      "description": "Two weeks of evening study sessions, with tables organized freely by school and exam subject.",
+      "location": "Library, Third Floor, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "mindful_walk",
+    "owner": "qinyue",
+    "source": {
+      "title": "正念散步与情绪记录",
+      "description": "心理学同学带领的低压力活动，适合期末前调整节奏。",
+      "location": "天赐庄校区本部花园"
+    },
+    "en": {
+      "title": "Mindful Walking and Mood Journaling",
+      "description": "A gentle activity led by psychology students to help you find a balanced routine before finals.",
+      "location": "Main Campus Garden, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "security_ctf",
+    "owner": "dongchen",
+    "source": {
+      "title": "网络安全 CTF 体验赛",
+      "description": "新手友好的 CTF 入门场，现场讲解题型并自由组队。",
+      "location": "独墅湖校区计算机楼 501"
+    },
+    "en": {
+      "title": "Cybersecurity CTF Taster Competition",
+      "description": "A beginner-friendly introduction to CTF challenges, with explanations on site and flexible team formation.",
+      "location": "Computer Science Building, Room 501, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "iot_lab",
+    "owner": "gaoyi",
+    "source": {
+      "title": "物联网创客开放夜",
+      "description": "体验传感器、开发板和校园场景原型设计，适合想做硬件项目的同学。",
+      "location": "独墅湖校区电子楼开放实验室"
+    },
+    "en": {
+      "title": "Internet of Things Maker Night",
+      "description": "Explore sensors, development boards, and campus prototypes. Ideal for students interested in hardware projects.",
+      "location": "Open Electronics Lab, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "campus_market",
+    "owner": "sunhan",
+    "source": {
+      "title": "跳蚤市集与手作交换",
+      "description": "旧书、手作、文创和闲置交换，适合轻松社交和校园生活记录。",
+      "location": "天赐庄校区东吴桥广场"
+    },
+    "en": {
+      "title": "Flea Market and Handmade Exchange",
+      "description": "Swap used books, handmade items, creative goods, and other belongings while meeting people and enjoying campus life.",
+      "location": "Dongwu Bridge Plaza, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "design_review",
+    "owner": "sunhan",
+    "source": {
+      "title": "海报设计互评会",
+      "description": "带上你的活动海报或 PPT 页面，现场互评构图、层级和配色。",
+      "location": "天赐庄校区艺术学院 109"
+    },
+    "en": {
+      "title": "Poster Design Peer Review",
+      "description": "Bring an event poster or presentation slide for live feedback on composition, visual hierarchy, and color.",
+      "location": "School of Art, Room 109, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "survey_sprint",
+    "owner": "fenglu",
+    "source": {
+      "title": "校园调研冲刺营",
+      "description": "从问卷设计到访谈提纲，帮助社科类项目快速完成前期调研。",
+      "location": "独墅湖校区社会学院 203"
+    },
+    "en": {
+      "title": "Campus Research Sprint",
+      "description": "Develop questionnaires and interview guides to complete the early research stages of social science projects.",
+      "location": "School of Social Sciences, Room 203, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "graduate_chat",
+    "owner": "qinyue",
+    "source": {
+      "title": "考研复试经验茶话会",
+      "description": "围绕复试准备、导师沟通、英语口语和心态调整做经验交流。",
+      "location": "天赐庄校区咖啡角"
+    },
+    "en": {
+      "title": "Graduate Interview Experience Meetup",
+      "description": "Share advice on graduate interview preparation, contacting supervisors, spoken English, and managing stress.",
+      "location": "Coffee Corner, Tiancizhuang Campus"
+    }
+  },
+  {
+    "type": "ACTIVITY",
+    "key": "robotics_day",
+    "owner": "gaoyi",
+    "source": {
+      "title": "校园机器人开放日",
+      "description": "展示机器人循迹、机械臂抓取和智能交互原型，现场可自由体验并报名项目小组。",
+      "location": "独墅湖校区工程训练中心"
+    },
+    "en": {
+      "title": "Campus Robotics Open Day",
+      "description": "Try line-following robots, robotic arms, and interactive prototypes, and sign up for project teams.",
+      "location": "Engineering Training Center, Dushu Lake Campus"
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "ai_team",
+    "owner": "org",
+    "source": {
+      "title": "学术讲座｜AI 讲座志愿接待小组",
+      "description": "想一起负责签到、引导和提问整理的同学可以加入，适合沟通耐心好、时间稳定的成员。"
+    },
+    "en": {
+      "title": "Academic Talks | AI Lecture Welcome Volunteers",
+      "description": "Help with check-in, directions, and collecting audience questions. We welcome patient communicators with reliable availability."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "startup_team",
+    "owner": "chenze",
+    "source": {
+      "title": "竞赛组队｜服务外包赛缺前端",
+      "description": "已有产品和算法同学，想再找 1 名能做展示型页面的前端同学一起冲刺答辩。"
+    },
+    "en": {
+      "title": "Competition Teams | Frontend Developer Wanted",
+      "description": "Our team already has product and algorithm specialists. We need one frontend developer to build demo pages for the final presentation."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "badminton",
+    "owner": "xuan",
+    "source": {
+      "title": "运动健身｜周三羽毛球搭子",
+      "description": "每周三晚上打两个小时，水平不限，主要是规律运动、互相拉练。"
+    },
+    "en": {
+      "title": "Sports & Fitness | Wednesday Badminton Partners",
+      "description": "Play for two hours every Wednesday evening. All skill levels are welcome for regular exercise and friendly practice."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "study",
+    "owner": "shenyi",
+    "source": {
+      "title": "考研搭子｜图书馆晚间互相监督",
+      "description": "工作日晚间固定打卡，适合想找稳定学习节奏和互相监督的同学。"
+    },
+    "en": {
+      "title": "Study Partners | Evening Library Accountability",
+      "description": "Check in on weekday evenings with peers who want a steady study routine and mutual accountability."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "resume_team",
+    "owner": "linzhixia",
+    "source": {
+      "title": "兼职实习｜简历互改答辩组",
+      "description": "围绕简历门诊活动提前准备展示稿和自我介绍，顺带互看简历和项目经历。"
+    },
+    "en": {
+      "title": "Jobs & Internships | Resume and Presentation Peers",
+      "description": "Prepare presentations and self-introductions for the resume clinic while reviewing one another’s resumes and project experience."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "cv_team",
+    "owner": "gumingzhe",
+    "source": {
+      "title": "竞赛组队｜计算机视觉复现答辩组",
+      "description": "这个队伍保留用于验证活动关闭联动组队后，历史队伍仍可在组队页和我的队伍中继续访问。"
+    },
+    "en": {
+      "title": "Competition Teams | Computer Vision Reproduction Group",
+      "description": "This team is retained to verify that existing teams remain accessible on the Teams and My Teams pages after linked team formation is disabled."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "running_team",
+    "owner": "chenze",
+    "source": {
+      "title": "运动健身｜夜跑配速小队",
+      "description": "今晚一起跑 5km，配速相近的同学欢迎加入，结束后顺便拉伸交流。"
+    },
+    "en": {
+      "title": "Sports & Fitness | Night Run Pace Group",
+      "description": "Run 5 km together tonight with students at a similar pace, then stretch and chat afterward."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "math_team",
+    "owner": "songyutong",
+    "source": {
+      "title": "竞赛组队｜数学建模竞赛缺一个写作手",
+      "description": "队伍已经接近满员，用来测试满员后仍可继续管理申请。"
+    },
+    "en": {
+      "title": "Competition Teams | Mathematical Modeling Writer Wanted",
+      "description": "This team is nearly full and is used to check that applications remain manageable when capacity is reached."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "intl_team",
+    "owner": "baikexin",
+    "source": {
+      "title": "兴趣社交｜国际交流饭搭子",
+      "description": "想找一起吃饭、练口语和了解交换项目的同学，欢迎轻松加入。"
+    },
+    "en": {
+      "title": "Social & Hobbies | International Lunch Partners",
+      "description": "Meet students for meals, speaking practice, and conversations about exchange programs in a relaxed setting."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "agent_team",
+    "owner": "wangyi",
+    "source": {
+      "title": "学术讲座｜智能体客服展示小组",
+      "description": "准备一个 Dify 知识库客服演示，缺负责流程图和测试问题整理的同学。"
+    },
+    "en": {
+      "title": "Academic Talks | AI Support Agent Demo Team",
+      "description": "Prepare a Dify knowledge-base support demo. We need help drawing flowcharts and organizing test questions."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "prompt_team",
+    "owner": "dongchen",
+    "source": {
+      "title": "学术讲座｜提示词案例整理队",
+      "description": "一起整理注册、报名、组队、通知四类客服问答案例。"
+    },
+    "en": {
+      "title": "Academic Talks | Prompt Example Collection Team",
+      "description": "Collect support Q&A examples about registration, event sign-up, team formation, and notifications."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "data_team",
+    "owner": "maolin",
+    "source": {
+      "title": "竞赛组队｜推荐数据分析队",
+      "description": "用平台行为日志做一个推荐解释看板，适合会 SQL 或可视化的同学。"
+    },
+    "en": {
+      "title": "Competition Teams | Recommendation Data Analysis",
+      "description": "Build a recommendation explanation dashboard using platform behavior logs. SQL and visualization skills are welcome."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "java_team",
+    "owner": "dongchen",
+    "source": {
+      "title": "竞赛组队｜后端联调互助组",
+      "description": "集中处理接口、数据库、登录态和分页问题，适合项目冲刺阶段加入。"
+    },
+    "en": {
+      "title": "Competition Teams | Backend Integration Support",
+      "description": "Work through API, database, login session, and pagination issues together during the project sprint."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "portfolio_team",
+    "owner": "yexiao",
+    "source": {
+      "title": "兼职实习｜作品集互评队",
+      "description": "互相看项目截图、PPT 和讲解稿，重点提升答辩展示效果。"
+    },
+    "en": {
+      "title": "Jobs & Internships | Portfolio Peer Review",
+      "description": "Review project screenshots, slides, and presentation scripts to improve the final project demonstration."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "language_team",
+    "owner": "liyun",
+    "source": {
+      "title": "兴趣社交｜英语口语搭子",
+      "description": "每周固定口语角，先从自我介绍和校园话题开始练。"
+    },
+    "en": {
+      "title": "Social & Hobbies | English Speaking Partners",
+      "description": "Meet weekly for English practice, starting with introductions and campus topics."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "photo_team",
+    "owner": "yexiao",
+    "source": {
+      "title": "文艺演出｜校园摄影互拍组",
+      "description": "拍建筑、人像和活动纪实，欢迎负责后期选片的同学。"
+    },
+    "en": {
+      "title": "Arts & Performances | Campus Photography Peers",
+      "description": "Photograph buildings, portraits, and campus events. Students interested in editing and photo selection are welcome."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "choir_team",
+    "owner": "caixuan",
+    "source": {
+      "title": "文艺演出｜草坪合唱声部组",
+      "description": "临时排练两首歌，缺低声部和现场拍摄同学。"
+    },
+    "en": {
+      "title": "Arts & Performances | Lawn Choir Section Group",
+      "description": "Rehearse two songs together. We need lower voices and someone to photograph the performance."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "volunteer_guide_team",
+    "owner": "fenglu",
+    "source": {
+      "title": "志愿服务｜古城导览志愿队",
+      "description": "活动前一起背路线和讲解词，现场两人一组。"
+    },
+    "en": {
+      "title": "Volunteering | Old Town Guide Team",
+      "description": "Learn the route and commentary together before the event, then guide visitors in pairs."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "trail_team",
+    "owner": "zhaoran",
+    "source": {
+      "title": "运动健身｜环湖徒步轻量队",
+      "description": "不追求速度，重点是完成路线和互相照应。"
+    },
+    "en": {
+      "title": "Sports & Fitness | Relaxed Lakeside Walking Team",
+      "description": "Focus on completing the route and looking out for one another, at a comfortable pace."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "badminton_team_2",
+    "owner": "hanxu",
+    "source": {
+      "title": "运动健身｜羽毛球双打练习组",
+      "description": "新手友好，主要练双打站位和接发球。"
+    },
+    "en": {
+      "title": "Sports & Fitness | Badminton Doubles Practice",
+      "description": "Beginner-friendly doubles practice focused on positioning, serving, and returning serves."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "career_team",
+    "owner": "zhoumo",
+    "source": {
+      "title": "兼职实习｜校友圆桌提问组",
+      "description": "提前准备投递、面试和实习复盘问题，活动后整理笔记。"
+    },
+    "en": {
+      "title": "Jobs & Internships | Alumni Roundtable Questions",
+      "description": "Prepare questions about applications, interviews, and internship experiences, then organize notes after the event."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "pitch_team",
+    "owner": "zhoumo",
+    "source": {
+      "title": "竞赛组队｜三分钟路演打磨队",
+      "description": "已有想法但缺展示结构，想找同学一起练路演。"
+    },
+    "en": {
+      "title": "Competition Teams | Three-Minute Pitch Practice",
+      "description": "Already have an idea but need a presentation structure? Join peers to rehearse your pitch."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "paper_team",
+    "owner": "wuyang",
+    "source": {
+      "title": "考研搭子｜论文精读互助组",
+      "description": "每人负责一段论文，最后合并成答辩可用的讲解。"
+    },
+    "en": {
+      "title": "Study Partners | Research Paper Reading Group",
+      "description": "Each member explains one section of a paper, then the group combines the work into a presentation."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "exam_team",
+    "owner": "zhengqiu",
+    "source": {
+      "title": "考研搭子｜期末自习打卡队",
+      "description": "晚间固定打卡，适合需要稳定节奏的同学。"
+    },
+    "en": {
+      "title": "Study Partners | Final Exam Check-In Team",
+      "description": "Check in every evening with students who want a consistent study routine."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "security_team",
+    "owner": "gaoyi",
+    "source": {
+      "title": "竞赛组队｜CTF 新手练习队",
+      "description": "从 Web 和 Crypto 入门题开始，欢迎零基础但愿意查资料的同学。"
+    },
+    "en": {
+      "title": "Competition Teams | Beginner CTF Practice",
+      "description": "Start with introductory Web and Crypto challenges. Beginners willing to research and learn are welcome."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "iot_team",
+    "owner": "gaoyi",
+    "source": {
+      "title": "竞赛组队｜物联网原型小队",
+      "description": "想做校园打卡或活动签到硬件原型，缺前端展示和文档同学。"
+    },
+    "en": {
+      "title": "Competition Teams | IoT Prototype Team",
+      "description": "Build a campus check-in or event attendance hardware prototype. We need help with the frontend and documentation."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "market_team",
+    "owner": "sunhan",
+    "source": {
+      "title": "兴趣社交｜市集摊主互助组",
+      "description": "一起准备摊位物料、价签和宣传图，适合手作或旧书交换。"
+    },
+    "en": {
+      "title": "Social & Hobbies | Campus Market Stallholders",
+      "description": "Prepare stall materials, price labels, and promotional images together for handmade goods or used-book exchanges."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "robotics_team",
+    "owner": "gaoyi",
+    "source": {
+      "title": "竞赛组队｜机器人开放日讲解队",
+      "description": "为开放日准备机器人演示脚本，缺负责讲解、拍摄和现场引导的同学。"
+    },
+    "en": {
+      "title": "Competition Teams | Robotics Open Day Guides",
+      "description": "Prepare robot demo scripts for the open day. We need presenters, photographers, and event guides."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "qa_team",
+    "owner": "wangyi",
+    "source": {
+      "title": "学术讲座｜智能客服测试小组",
+      "description": "围绕 Dify 客服准备常见问题、兜底问题和转人工测试用例。"
+    },
+    "en": {
+      "title": "Academic Talks | AI Support Testing Group",
+      "description": "Prepare common questions, fallback scenarios, and human handoff test cases for the Dify support assistant."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "slides_team",
+    "owner": "sunhan",
+    "source": {
+      "title": "兼职实习｜项目汇报 PPT 打磨队",
+      "description": "一起优化综合实践汇报 PPT，重点看逻辑、截图和演示话术。"
+    },
+    "en": {
+      "title": "Jobs & Internships | Project Presentation Workshop",
+      "description": "Improve course project slides together, focusing on structure, screenshots, and demo narration."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "ml_team",
+    "owner": "maolin",
+    "source": {
+      "title": "竞赛组队｜推荐算法实验队",
+      "description": "用兴趣标签、点击、收藏、报名和组队行为做推荐排序实验。"
+    },
+    "en": {
+      "title": "Competition Teams | Recommendation Algorithm Lab",
+      "description": "Experiment with recommendation ranking using interests, clicks, favorites, registrations, and team activity."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "reading_team",
+    "owner": "qinyue",
+    "source": {
+      "title": "考研搭子｜清晨背书监督组",
+      "description": "每天早上固定线上打卡，适合需要稳定节奏和互相提醒的同学。"
+    },
+    "en": {
+      "title": "Study Partners | Morning Memorization Check-In",
+      "description": "Check in online every morning to maintain a regular study routine and remind one another."
+    }
+  },
+  {
+    "type": "TEAM",
+    "key": "media_team",
+    "owner": "yexiao",
+    "source": {
+      "title": "文艺演出｜活动摄影剪辑队",
+      "description": "给校园活动拍摄短视频和照片，缺负责剪辑、字幕和封面设计的同学。"
+    },
+    "en": {
+      "title": "Arts & Performances | Event Photography and Video",
+      "description": "Create videos and photos for campus events. We need help with editing, subtitles, and cover design."
+    }
+  }
+]

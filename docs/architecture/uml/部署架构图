@@ -1,0 +1,49 @@
+@startuml
+skinparam defaultFontName "PingFang SC"
+skinparam shadowing false
+skinparam node {
+  RoundCorner 15
+  BackgroundColor #F7FAFF
+  BorderColor #2F5C8A
+}
+skinparam artifactStyle rectangle
+title 图3-4 部署架构图
+
+node "用户终端" as client {
+  artifact "浏览器\nChrome / Edge / Safari"
+}
+
+node "Web 前端部署环境" as frontend {
+  artifact "Web 用户平台"
+  artifact "Web 管理后台"
+  artifact "静态资源文件"
+}
+
+node "应用服务部署环境" as app {
+  artifact "CampusPulse 后端服务\nSpring Boot"
+  artifact "REST API 服务"
+  artifact "SSE 实时推送服务"
+  artifact "定时清理任务"
+}
+
+database "MySQL 数据库" as db
+
+node "文件存储目录" as storage {
+  artifact "头像文件 avatars/"
+  artifact "封面文件 covers/"
+}
+
+cloud "SMTP 邮件服务" as smtp
+cloud "AI 外部服务" as ai
+cloud "Dify 知识库 Chatflow" as dify
+
+client --> frontend : HTTPS 访问
+client --> app : REST/JSON\nSSE
+frontend --> app : API 调用
+app --> db : JDBC
+app --> storage : 文件读写
+app --> smtp : SMTP/TLS
+app --> ai : HTTP/JSON
+app --> dify : HTTP/JSON
+
+@enduml

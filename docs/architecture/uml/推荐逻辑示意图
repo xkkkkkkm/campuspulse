@@ -1,0 +1,81 @@
+@startuml
+skinparam defaultFontName "PingFang SC"
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam rectangle {
+  RoundCorner 12
+  BackgroundColor #F8FBFF
+  BorderColor #3A5F8A
+}
+title 图3-5 智能推荐逻辑示意图
+
+rectangle "推荐输入数据" {
+  rectangle "用户兴趣标签\nuser_interest" as input_tag
+  rectangle "历史参加活动\nregistrations" as input_reg
+  rectangle "历史组队参与\nteam_member / teams" as input_team
+  rectangle "用户行为日志\nevent_log" as input_event
+  rectangle "活动标签与活动信息\nactivities / activity_tag" as input_activity
+  rectangle "队伍信息与状态\nteams / team_member" as input_teaminfo
+  rectangle "运营推荐位\nops_featured_activity" as input_ops
+}
+
+rectangle "推荐计算过程" {
+  rectangle "兴趣画像构建" as profile
+  rectangle "活动候选集生成" as activity_candidate
+  rectangle "队伍候选集生成" as team_candidate
+  rectangle "标签匹配计算" as tag_match
+  rectangle "历史偏好加权" as history_score
+  rectangle "行为热度加权" as behavior_score
+  rectangle "时间窗口加权" as time_score
+  rectangle "运营权重加权" as ops_score
+  rectangle "综合排序" as rank
+}
+
+rectangle "推荐输出结果" {
+  rectangle "活动推荐结果" as out_activity
+  rectangle "组队推荐结果" as out_team
+}
+
+rectangle "AI 增强能力" {
+  rectangle "活动内容语义分析" as ai_activity
+  rectangle "队伍招募信息语义分析" as ai_team
+  rectangle "标签补充与推荐增强" as ai_boost
+}
+
+input_tag --> profile
+input_reg --> profile
+input_team --> profile
+input_event --> profile
+
+input_activity --> activity_candidate
+input_teaminfo --> team_candidate
+
+profile --> tag_match
+activity_candidate --> tag_match
+team_candidate --> tag_match
+
+profile --> history_score
+input_reg --> history_score
+input_team --> history_score
+
+input_event --> behavior_score
+activity_candidate --> time_score
+team_candidate --> time_score
+input_ops --> ops_score
+
+tag_match --> rank
+history_score --> rank
+behavior_score --> rank
+time_score --> rank
+ops_score --> rank
+
+rank --> out_activity
+rank --> out_team
+
+input_activity --> ai_activity
+input_teaminfo --> ai_team
+ai_activity --> ai_boost
+ai_team --> ai_boost
+ai_boost --> rank
+
+@enduml

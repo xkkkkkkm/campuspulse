@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="活动详情 - 校园活动与组队平台">活动详情 - 校园活动与组队平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a id="activityDetailBackLink" href="activity-lobby.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="活动详情">活动详情</span>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="activity-detail-card animate-fade-up">
+            <img id="activityCover" src="assets/images/avatar.svg" alt="Cover" class="activity-main-image">
+
+            <div class="activity-detail-content">
+                <h1 id="activityTitle" style="font-size: 32px; font-weight: 700; margin-bottom: 12px;" data-i18n="活动详情">活动详情</h1>
+                <div id="activityAuditNotice" class="status-banner" style="display:none;"></div>
+
+                <div class="tags" id="activityTags"></div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label data-i18n="时间">时间</label>
+                        <div class="value" id="activityTime">-</div>
+                    </div>
+                    <div class="info-item">
+                        <label data-i18n="地点">地点</label>
+                        <div class="value" id="activityLoc">-</div>
+                    </div>
+                    <div class="info-item">
+                        <label data-i18n="名额">名额</label>
+                        <div class="value" id="activityQuota">-</div>
+                    </div>
+                </div>
+
+                <section style="margin-top: 32px;">
+                    <h3 style="font-size: 20px; margin-bottom: 12px;" data-i18n="关于活动">关于活动</h3>
+                    <p id="activityDesc" style="font-size: 16px; color: var(--text-secondary); line-height: 1.6;"></p>
+                    <div id="organizerContactBox" style="display:none; margin-top: 16px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; padding: 14px 16px;">
+                        <div style="display:flex; align-items:center; justify-content: space-between; gap: 12px;">
+                            <div style="font-size: 14px; font-weight: 750;" data-i18n="发布人联系方式">发布人联系方式</div>
+                            <a id="organizerChatLink" href="#" class="secondary-btn" style="width:auto; padding: 8px 12px; border-radius: 14px; font-size: 13px;" data-i18n="去私聊">去私聊</a>
+                        </div>
+                        <div id="organizerPhoneText" style="margin-top: 10px; color: var(--text-secondary); font-size: 13px; line-height: 1.5;"></div>
+                    </div>
+                </section>
+
+                <section class="team-section" style="margin-top: 40px;">
+                    <h3 style="font-size: 20px; margin-bottom: 20px;" data-i18n="招募中的队伍">招募中的队伍</h3>
+                    <div id="teamActionModule" class="stack-card team-action-module" style="margin-bottom: 16px;">
+                        <div id="teamLinkNotice" class="field-hint team-action-notice"></div>
+                        <button id="createTeamBtn" class="primary-btn team-action-btn" data-i18n="创建我的队伍">创建我的队伍</button>
+                    </div>
+                    <div class="team-list" id="teamList"></div>
+                    <div style="display:flex; gap: 10px; margin-top: 10px;">
+                        <button id="contactOrganizerBtn" class="secondary-btn" style="flex:1;" data-i18n="联系发布人">联系发布人</button>
+                        <button id="activityChatBtn" class="secondary-btn" style="flex:1;" data-i18n="进入群聊">进入群聊</button>
+                        <button id="activityChatEnableBtn" class="secondary-btn" style="flex:1;" data-i18n="开启群聊">开启群聊</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="detail-footer">
+        <div id="collectBtn" class="icon-btn"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="icon-btn"><i class="fa-solid fa-share-nodes"></i></div>
+        <button id="cancelRegistrationBtn" class="secondary-btn" style="display:none; width:auto; min-width: 132px;" data-i18n="取消报名">取消报名</button>
+        <button id="registerBtn" class="primary-btn" data-i18n="立即报名参与">立即报名参与</button>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content animate-fade-up">
+            <div class="modal-header">
+                <h3 data-i18n="活动报名">活动报名</h3>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;" data-i18n="请填写您的报名信息">请填写您的报名信息</p>
+            </div>
+            <div class="modal-body">
+                <input id="regRealName" type="text" placeholder="真实姓名" data-i18n-placeholder="真实姓名">
+                <input id="regPhone" type="text" placeholder="手机号码" data-i18n-placeholder="手机号码">
+                <input id="regCollege" type="text" placeholder="所属学院" data-i18n-placeholder="所属学院">
+                <textarea id="regIntro" maxlength="512" placeholder="个人介绍（选填）：分享一点你的闪光点，让组织者更快发现优秀的你..." data-i18n-placeholder="个人介绍（选填）：分享一点你的闪光点，让组织者更快发现优秀的你..."></textarea>
+                <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; text-align: left; padding: 0 4px;" data-i18n="* 完善个人介绍有助于我们更懂你，开启更多精彩可能。">* 完善个人介绍有助于我们更懂你，开启更多精彩可能。</p>
+                <button id="submitRegistrationBtn" class="primary-btn" style="width: 100%;" data-i18n="确认提交">确认提交</button>
+                <button id="closeRegisterModalBtn" class="secondary-btn" style="width: 100%; margin-top: 12px;" data-i18n="先看看再说">先看看再说</button>
+            </div>
+        </div>
+    </div>
+    <div id="registrationsModal" class="modal">
+        <div class="modal-content animate-fade-up" style="max-width: 720px;">
+            <div class="modal-header">
+                <h3 data-i18n="报名管理">报名管理</h3>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;" data-i18n="发布者可审批报名申请，并联系申请人确认参与细节">发布者可审批报名申请，并联系申请人确认参与细节</p>
+            </div>
+            <div class="modal-body" style="padding: 0;">
+                <div class="menu-list" id="registrationsList" style="box-shadow:none;"></div>
+                <button id="closeRegistrationsModalBtn" class="secondary-btn" style="width: 100%; margin-top: 12px;" data-i18n="关闭">关闭</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

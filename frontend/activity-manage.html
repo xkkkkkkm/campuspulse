@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="活动管理 - CampusPulse">活动管理 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body class="manage-page">
+    <header>
+        <div class="top-bar">
+            <a id="activityManageBackLink" href="profile.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="活动管理">活动管理</span>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </header>
+
+    <main class="manage-page-main">
+        <section class="manage-hero animate-fade-up">
+            <div class="manage-hero-copy">
+                <div class="admin-eyebrow">Activity Manage</div>
+                <h1 id="activityManageTitle" data-i18n="我发布的活动">我发布的活动</h1>
+                <p id="activityManageHint" data-i18n="在这里查看报名申请，决定是否允许申请人参加活动。">在这里查看报名申请，决定是否允许申请人参加活动。</p>
+                <div class="manage-hero-pills">
+                    <span class="badge-pill" data-i18n="查看当前概览">查看当前概览</span>
+                    <span class="badge-pill" data-i18n="直接编辑信息">直接编辑信息</span>
+                    <span class="badge-pill" data-i18n="继续处理报名">继续处理报名</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="manage-summary-stage animate-fade-up" style="animation-delay: 0.04s;">
+            <section id="activityManageSummary" class="manage-panel manage-summary-panel">
+                <div class="manage-loading-copy" data-i18n="正在加载活动信息...">正在加载活动信息...</div>
+            </section>
+        </section>
+
+        <section class="manage-work-grid animate-fade-up" style="animation-delay: 0.06s;">
+            <div class="manage-work-primary">
+                <section class="manage-panel manage-review-panel">
+                    <div class="manage-panel-head">
+                        <div>
+                            <div class="manage-panel-title" data-i18n="报名审批">报名审批</div>
+                            <div class="manage-panel-desc" data-i18n="待审批申请会在这里集中展示，处理后会自动通知申请人。">待审批申请会在这里集中展示，处理后会自动通知申请人。</div>
+                        </div>
+                    </div>
+                    <div id="activityManageRegistrations" class="stack-list manage-review-list"></div>
+                </section>
+            </div>
+
+            <div class="manage-work-secondary">
+                <section id="activityEditSection" class="manage-panel manage-form-panel">
+                    <div class="manage-panel-head">
+                        <div>
+                            <div class="manage-panel-title" data-i18n="编辑活动信息">编辑活动信息</div>
+                            <div class="manage-panel-desc" data-i18n="时间、地点、描述或人数变化后，可在这里直接更新并立即生效。">时间、地点、描述或人数变化后，可在这里直接更新并立即生效。</div>
+                        </div>
+                    </div>
+                    <div class="manage-form-body">
+                <div class="form-group">
+                    <label data-i18n="活动名称">活动名称</label>
+                    <input id="activityEditTitle" type="text" placeholder="活动名称" data-i18n-placeholder="活动名称">
+                </div>
+                <div class="manage-form-grid">
+                    <div class="form-group">
+                        <label data-i18n="开始时间">开始时间</label>
+                        <input id="activityEditStart" type="datetime-local">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="结束时间">结束时间</label>
+                        <input id="activityEditEnd" type="datetime-local">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="地点">地点</label>
+                    <input id="activityEditLocation" type="text" placeholder="活动地点" data-i18n-placeholder="活动地点">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="宣传图（可选）">宣传图（可选）</label>
+                    <div class="manage-cover-block">
+                        <img id="activityEditCoverPreview" src="" alt="cover" class="manage-cover-preview">
+                        <div class="manage-cover-actions">
+                            <input id="activityEditCoverUrl" type="text" placeholder="已上传的宣传图地址" data-i18n-placeholder="已上传的宣传图地址">
+                            <div class="utility-actions manage-inline-actions">
+                                <button id="activityEditUploadBtn" type="button" class="secondary-btn" data-i18n="上传新宣传图">上传新宣传图</button>
+                            </div>
+                            <div class="field-hint" data-i18n="支持直接上传新图片，也可以保留当前宣传图。">支持直接上传新图片，也可以保留当前宣传图。</div>
+                            <input id="activityEditCoverFile" type="file" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="manage-form-grid">
+                    <div class="form-group">
+                        <label data-i18n="人数上限">人数上限</label>
+                        <input id="activityEditMax" type="number" placeholder="留空或填 0 表示不限人数" data-i18n-placeholder="留空或填 0 表示不限人数">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="活动联动设置">活动联动设置</label>
+                        <label class="manage-toggle-card manage-toggle-card-label" for="activityEditTeamingEnabled">
+                            <div class="manage-toggle-copy">
+                                <div class="manage-toggle-title" data-i18n="允许围绕该活动继续发起组队">允许围绕该活动继续发起组队</div>
+                                <div class="manage-toggle-desc" data-i18n="关闭后，活动详情页不再显示围绕该活动新建队伍的入口。">关闭后，活动详情页不再显示围绕该活动新建队伍的入口。</div>
+                            </div>
+                            <span class="manage-toggle-switch">
+                                <input id="activityEditTeamingEnabled" type="checkbox">
+                                <span class="manage-toggle-track"><span class="manage-toggle-thumb"></span></span>
+                                <span id="activityEditTeamingEnabledLabel" class="manage-toggle-state" data-i18n="已开启">已开启</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="活动标签">活动标签</label>
+                    <div id="activityEditTags" class="manage-tag-picker"></div>
+                    <div id="activityEditTagHint" class="field-hint" data-i18n="至少选择 1 个标签">至少选择 1 个标签</div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="详细描述">详细描述</label>
+                    <textarea id="activityEditDesc" placeholder="活动描述" data-i18n-placeholder="活动描述"></textarea>
+                </div>
+                <div id="activityEditHint" class="field-hint manage-form-hint"></div>
+                <div class="utility-actions manage-form-footer">
+                    <button id="activityEditResetBtn" type="button" class="secondary-btn" data-i18n="恢复当前内容">恢复当前内容</button>
+                    <button id="activityEditSaveBtn" type="button" class="primary-btn" data-i18n="保存活动信息">保存活动信息</button>
+                </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="manage-bottom-bar animate-fade-up" style="animation-delay: 0.12s;">
+            <div class="utility-actions manage-bottom-actions">
+                <a id="activityManageDetailBtn" href="#" class="secondary-btn" data-i18n="查看活动详情">查看活动详情</a>
+                <button id="activityManageChatToggleBtn" type="button" class="secondary-btn" data-i18n="开启群聊">开启群聊</button>
+                <a href="publish-activity.html?type=activity" class="secondary-btn" data-i18n="继续发布活动">继续发布活动</a>
+                <button id="activityDeleteBtn" type="button" class="secondary-btn manage-danger-btn" data-i18n="删除活动">删除活动</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

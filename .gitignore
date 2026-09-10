@@ -1,0 +1,46 @@
+# Java / Spring Boot
+backend/target/
+*.class
+
+# Local configuration and runtime data
+.env
+.env.*
+!/.env.example
+frontend/uploads/*
+!frontend/uploads/.gitkeep
+*.log
+
+# Python / ML
+.venv/
+__pycache__/
+*.py[cod]
+
+# macOS / IDE / generated output
+.DS_Store
+.idea/
+.vscode/
+outputs/
+*.zip
+*.pptx
+.codex_tmp_*
+
+# Historical course delivery bundles are outside this repository.
+交付给组员/
+docs/report_render/
+docs/report_assets/
+
+# Credentials, local data and reproducible build artifacts
+runtime/
+backups/
+ml/models/
+ml/reports/
+frontend/node_modules/
+frontend/playwright-report/
+frontend/test-results/
+*.joblib
+*.dump
+*.sql.gz
+*.tar.gz
+# Course binaries and generated presentation scripts are not required to run the app.
+*.docx
+tools/plantuml.jar

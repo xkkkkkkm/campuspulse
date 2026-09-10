@@ -1,0 +1,70 @@
+@startuml
+skinparam defaultFontName "PingFang SC"
+skinparam shadowing false
+hide circle
+skinparam linetype ortho
+title 图3-3 核心数据实体关系图
+
+entity "users" as users
+entity "tags" as tags
+entity "user_interest" as user_interest
+entity "activities" as activities
+entity "activity_tag" as activity_tag
+entity "registrations" as registrations
+entity "favorites" as favorites
+entity "teams" as teams
+entity "team_member" as team_member
+entity "team_join_request" as team_join_request
+entity "messages" as messages
+entity "dm_message" as dm_message
+entity "dm_read_state" as dm_read_state
+entity "activity_chat_message" as activity_chat_message
+entity "notifications" as notifications
+entity "event_log" as event_log
+entity "ops_featured_activity" as ops_featured_activity
+entity "email_code" as email_code
+entity "sms_code" as sms_code
+
+users ||--o{ user_interest
+tags ||--o{ user_interest
+
+users ||--o{ activities : 发布
+activities ||--o{ activity_tag
+tags ||--o{ activity_tag
+
+users ||--o{ registrations
+activities ||--o{ registrations
+
+users ||--o{ favorites
+activities ||--o{ favorites
+
+activities ||--o{ teams
+users ||--o{ teams : 创建
+
+teams ||--o{ team_member
+users ||--o{ team_member
+
+teams ||--o{ team_join_request
+users ||--o{ team_join_request
+
+teams ||--o{ messages
+users ||--o{ messages
+
+users ||--o{ dm_message : sender
+users ||--o{ dm_message : receiver
+
+users ||--o{ dm_read_state
+
+activities ||--o{ activity_chat_message
+users ||--o{ activity_chat_message
+
+users ||--o{ notifications
+
+users ||--o{ event_log
+activities ||--o{ event_log
+
+activities ||--|| ops_featured_activity
+
+email_code }o--|| users : 逻辑关联
+sms_code }o--|| users : 逻辑关联
+@enduml

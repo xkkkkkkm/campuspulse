@@ -1,0 +1,47 @@
+@startuml
+skinparam defaultFontName "PingFang SC"
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam componentStyle rectangle
+skinparam rectangle {
+  RoundCorner 15
+  BackgroundColor #F7F9FC
+  BorderColor #3B4A6B
+}
+title 图3-1 系统总体架构图
+
+rectangle "Web 用户平台" as web_user {
+  component "首页/活动大厅" as user_home
+  component "组队大厅/消息中心" as user_team
+  component "个人中心" as user_profile
+}
+
+rectangle "Web 管理后台" as admin_web {
+  component "用户管理" as admin_user
+  component "活动审核" as admin_activity
+  component "推荐位/标签运营" as admin_ops
+}
+
+rectangle "CampusPulse 后端服务\nSpring Boot 3.1.4" as backend {
+  component "认证与权限控制"
+  component "活动与报名管理"
+  component "推荐服务"
+  component "组队协作服务"
+  component "消息与通知服务"
+  component "上传与支撑服务"
+}
+
+database "MySQL 8.x\n业务数据库" as mysql
+rectangle "文件存储\n封面/头像" as storage
+cloud "SMTP 邮件服务" as smtp
+cloud "AI 外部服务\n标签提取/推荐辅助/组队建议" as ai
+cloud "Dify 知识库 Chatflow\n智能客服问答" as dify
+
+web_user --> backend : REST/JSON\nSSE
+admin_web --> backend : REST/JSON
+backend --> mysql : JDBC
+backend --> storage : 文件读写
+backend --> smtp : 邮件验证码
+backend --> ai : HTTP/JSON
+backend --> dify : HTTP/JSON
+@enduml

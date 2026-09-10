@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="个人记录 - CampusPulse">个人记录 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span id="profileRecordsTitle" style="font-size: 17px; font-weight: 600;" data-i18n="个人记录">个人记录</span>
+            </div>
+            <a id="profileRecordsBack" href="profile.html" style="color: var(--text-primary); font-size: 14px; text-decoration: none;" data-i18n="返回我的">返回我的</a>
+        </div>
+    </header>
+    <main>
+        <section class="animate-fade-up">
+            <p id="profileRecordsHint" style="color: var(--text-secondary); margin: 0 0 16px;" data-i18n="正在加载...">正在加载...</p>
+            <div class="menu-list" id="profileRecordsList"></div>
+            <div id="profileRecordsEmpty" class="stack-card" style="display:none; text-align:center; color: var(--text-secondary); margin-top: 14px;" data-i18n="当前没有相关记录。">当前没有相关记录。</div>
+        </section>
+    </main>
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html" class="active">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

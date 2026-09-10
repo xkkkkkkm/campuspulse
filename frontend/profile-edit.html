@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="完善资料 - CampusPulse">完善资料 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand" style="gap: 10px;">
+                <a href="profile.html" style="text-decoration:none; color: inherit; display:flex; align-items:center; gap: 10px;">
+                    <i class="fa-solid fa-chevron-left" style="font-size: 18px;"></i>
+                    <span style="font-size: 17px; font-weight: 600;" data-i18n="完善资料">完善资料</span>
+                </a>
+            </div>
+            <div style="cursor: pointer; font-size: 18px; color: var(--text-secondary);"><i class="fa-regular fa-circle-question"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="animate-fade-up" style="max-width: 720px; margin: 0 auto;">
+            <div class="publish-form" style="background: white; border-radius: 28px; padding: 22px 22px; border: 1px solid rgba(0,0,0,0.03); box-shadow: 0 20px 60px rgba(0,0,0,0.08); overflow: hidden;">
+                <div style="display:flex; align-items:center; justify-content: space-between; gap: 16px; padding: 6px 2px 18px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.01em;" data-i18n="完善资料">完善资料</div>
+                        <div style="color: var(--text-secondary); font-size: 13px; margin-top: 6px;" data-i18n="用于个性化推荐、展示学院信息与更精准的组队匹配">用于个性化推荐、展示学院信息与更精准的组队匹配</div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap: 12px;">
+                        <img id="editAvatarPreview" src="assets/images/avatar.svg" alt="Avatar" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.10); border: 1px solid rgba(0,0,0,0.05);">
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; padding: 14px 16px; margin-bottom: 18px;">
+                    <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                        <div style="font-size: 13px; color: var(--text-secondary);" data-i18n="姓名">姓名</div>
+                        <div id="staticNickname" style="font-size: 14px; font-weight: 750;">-</div>
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                        <div style="font-size: 13px; color: var(--text-secondary);" data-i18n="学号">学号</div>
+                        <div id="staticStudentNo" style="font-size: 14px; font-weight: 750;">-</div>
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                        <div style="font-size: 13px; color: var(--text-secondary);" data-i18n="年级">年级</div>
+                        <div id="staticGrade" style="font-size: 14px; font-weight: 750;">-</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="学院">学院</label>
+                    <input id="editCollege" type="text" placeholder="例如：计算机科学与技术学院" data-i18n-placeholder="例如：计算机科学与技术学院">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="校区">校区</label>
+                    <div id="campusChoices" style="display:flex; gap:10px; flex-wrap: wrap; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); border-radius: 18px; padding: 10px 10px;">
+                        <span class="campus-chip" data-value="天赐庄校区" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="天赐庄校区">天赐庄校区</span>
+                        <span class="campus-chip" data-value="独墅湖校区" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="独墅湖校区">独墅湖校区</span>
+                        <span class="campus-chip" data-value="阳澄湖校区" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="阳澄湖校区">阳澄湖校区</span>
+                        <span class="campus-chip" data-value="未来校区" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="未来校区">未来校区</span>
+                    </div>
+                    <input id="editCampus" type="hidden" value="">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="学历层次">学历层次</label>
+                    <div id="eduChoices" style="display:flex; gap:10px; flex-wrap: wrap; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); border-radius: 18px; padding: 10px 10px;">
+                        <span class="edu-chip" data-value="UNDERGRAD" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="本科">本科</span>
+                        <span class="edu-chip" data-value="MASTER" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="硕士">硕士</span>
+                        <span class="edu-chip" data-value="PHD" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="博士">博士</span>
+                        <span class="edu-chip" data-value="OTHER" style="user-select:none; cursor:pointer; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,0.04); color: var(--text-primary); font-size: 13px; font-weight: 750;" data-i18n="其他">其他</span>
+                    </div>
+                    <input id="editEducationLevel" type="hidden" value="">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="专业（可选）">专业（可选）</label>
+                    <input id="editMajor" type="text" placeholder="例如：软件工程" data-i18n-placeholder="例如：软件工程">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="个人简介（可选）">个人简介（可选）</label>
+                    <textarea id="editBio" placeholder="简单介绍一下自己，便于组队/搭子快速了解你（最多 300 字）" data-i18n-placeholder="简单介绍一下自己，便于组队/搭子快速了解你（最多 300 字）"></textarea>
+                </div>
+
+                <div id="editHint" style="font-size: 12px; color: var(--text-secondary); margin-top: 10px; min-height: 18px;"></div>
+                <button id="saveProfileBtn" class="primary-btn" style="width: 100%; margin-top: 14px;" data-i18n="保存">保存</button>
+                <a href="profile.html" class="secondary-btn" style="width: 100%; margin-top: 12px; display:block; text-align:center;" data-i18n="返回个人中心">返回个人中心</a>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

@@ -1,0 +1,12 @@
+*
+!requirements.txt
+!app/
+!app/**
+app/**/__pycache__/
+app/**/*.pyc
+**/.venv/
+**/.pytest_cache/
+**/__pycache__/
+**/tests/
+**/*.log
+**/.env*

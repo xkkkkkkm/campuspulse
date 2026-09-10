@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="队伍管理 - CampusPulse">队伍管理 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body class="manage-page">
+    <header>
+        <div class="top-bar">
+            <a id="teamSuccessBackLink" href="team-lobby.html" style="text-decoration: none; color: var(--accent-color); font-weight: 500;"><i class="fa-solid fa-chevron-left"></i><span data-i18n="返回"> 返回</span></a>
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 15px; font-weight: 600;" data-i18n="队伍管理">队伍管理</span>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </header>
+
+    <main class="manage-page-main">
+        <section class="manage-hero animate-fade-up">
+            <div class="manage-hero-copy">
+                <div class="admin-eyebrow">Team Manage</div>
+                <h1 data-i18n="管理你的队伍">管理你的队伍</h1>
+                <p data-i18n="可以在这里编辑队伍信息、审批申请人，并在满员后继续调整名单。">可以在这里编辑队伍信息、审批申请人，并在满员后继续调整名单。</p>
+                <div class="manage-hero-pills">
+                    <span class="badge-pill" data-i18n="查看成员状态">查看成员状态</span>
+                    <span class="badge-pill" data-i18n="调整队伍信息">调整队伍信息</span>
+                    <span class="badge-pill" data-i18n="继续处理申请">继续处理申请</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="manage-summary-stage animate-fade-up" style="animation-delay: 0.06s;">
+            <section id="teamSuccessCard" class="manage-panel manage-summary-panel">
+                <div class="manage-loading-copy" data-i18n="正在加载队伍信息...">正在加载队伍信息...</div>
+            </section>
+        </section>
+
+        <section class="manage-work-grid animate-fade-up" style="animation-delay: 0.08s;">
+            <div class="manage-work-primary">
+                <section id="teamRequestSection" class="manage-panel manage-review-panel" style="display:none;">
+                    <div class="manage-panel-head">
+                        <div>
+                            <div class="manage-panel-title" data-i18n="入队申请">入队申请</div>
+                            <div class="manage-panel-desc" data-i18n="队长可在这里审批申请人是否加入队伍。">队长可在这里审批申请人是否加入队伍。</div>
+                        </div>
+                    </div>
+                    <div id="teamRequestList" class="stack-list manage-review-list"></div>
+                </section>
+            </div>
+
+            <div class="manage-work-secondary">
+                <section id="teamEditSection" class="manage-panel manage-form-panel">
+                    <div class="manage-panel-head">
+                        <div>
+                            <div class="manage-panel-title" data-i18n="编辑队伍信息">编辑队伍信息</div>
+                            <div class="manage-panel-desc" data-i18n="时间、标题、描述和人数上限变化后，可在这里直接更新。">时间、标题、描述和人数上限变化后，可在这里直接更新。</div>
+                        </div>
+                    </div>
+                    <div class="manage-form-body">
+                <div class="form-group">
+                    <label data-i18n="队伍名称">队伍名称</label>
+                    <input id="teamEditTitle" type="text" placeholder="队伍名称" data-i18n-placeholder="队伍名称">
+                </div>
+                <div class="manage-form-grid">
+                    <div class="form-group">
+                        <label data-i18n="组队开始时间">组队开始时间</label>
+                        <input id="teamEditStart" type="datetime-local">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="组队截止时间">组队截止时间</label>
+                        <input id="teamEditEnd" type="datetime-local">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="队伍人数上限">队伍人数上限</label>
+                    <input id="teamEditMax" type="number" placeholder="留空或填 0 表示不限人数" data-i18n-placeholder="留空或填 0 表示不限人数">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="队伍简介">队伍简介</label>
+                    <textarea id="teamEditDesc" placeholder="队伍简介" data-i18n-placeholder="队伍简介"></textarea>
+                </div>
+                <div id="teamEditHint" class="field-hint manage-form-hint"></div>
+                <div class="utility-actions manage-form-footer">
+                    <button id="teamEditResetBtn" type="button" class="secondary-btn" data-i18n="恢复当前内容">恢复当前内容</button>
+                    <button id="teamEditSaveBtn" type="button" class="primary-btn" data-i18n="保存队伍信息">保存队伍信息</button>
+                </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="manage-bottom-bar animate-fade-up" style="animation-delay: 0.1s;">
+            <div class="utility-actions manage-bottom-actions">
+                <a id="teamSuccessChatBtn" href="#" class="primary-btn" data-i18n="进入队伍聊天">进入队伍聊天</a>
+                <a href="team-lobby.html" class="secondary-btn" data-i18n="返回组队大厅">返回组队大厅</a>
+                <button id="teamDeleteBtn" type="button" class="secondary-btn manage-danger-btn" style="display:none;" data-i18n="删除队伍">删除队伍</button>
+            </div>
+            <div class="utility-actions manage-bottom-actions manage-bottom-actions-secondary">
+                <a id="teamSuccessActivityBtn" href="#" class="secondary-btn" style="display:none;" data-i18n="查看关联活动">查看关联活动</a>
+                <a href="publish-activity.html" class="secondary-btn" data-i18n="继续发起内容">继续发起内容</a>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

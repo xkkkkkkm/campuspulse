@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="注册 - 校园活动与组队平台">注册 - 校园活动与组队平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body class="auth-body">
+    <main class="auth-page">
+        <div class="auth-layout animate-fade-up">
+            <section class="auth-hero">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="auth-hero-logo" data-i18n-alt="CampusPulse 标志">
+                <div class="auth-hero-text">
+                    <div class="auth-hero-university" data-i18n="苏州大学">苏州大学</div>
+                    <h1 class="auth-hero-title" data-i18n="创建账号">创建账号</h1>
+                    <div class="auth-hero-motto" data-i18n="加入更高效的活动发现与组队体验">加入更高效的活动发现与组队体验</div>
+                </div>
+            </section>
+
+            <section class="auth-card">
+                <div class="auth-card-header">
+                    <div class="auth-card-title" data-i18n="注册">注册</div>
+                    <div class="auth-card-subtitle" data-i18n="填写基础信息创建账号">填写基础信息创建账号</div>
+                </div>
+
+                <div class="auth-input-group">
+                    <input id="regNickname" type="text" placeholder="姓名" autocomplete="name" data-i18n-placeholder="姓名">
+                    <input id="regUsername" type="text" placeholder="学号（也作为登录账号）" autocomplete="username" data-i18n-placeholder="学号（也作为登录账号）">
+                    <input id="regEmail" type="email" placeholder="邮箱（用于验证码登录/找回密码）" autocomplete="email" data-i18n-placeholder="邮箱（用于验证码登录/找回密码）">
+                    <div style="display:flex; gap: 10px;">
+                        <input id="regEmailCode" type="text" placeholder="6位验证码" inputmode="numeric" style="flex:1;" data-i18n-placeholder="6位验证码">
+                        <button id="regSendBtn" class="secondary-btn" style="width:auto; padding: 12px 14px; font-size: 14px; border-radius: 14px;" data-i18n="发送验证码">发送验证码</button>
+                    </div>
+                    <div style="position: relative;">
+                        <input id="regPassword" type="password" maxlength="128" placeholder="设置密码" autocomplete="new-password" style="padding-right: 46px;" data-i18n-placeholder="设置密码">
+                        <i id="toggleRegPwd" class="fa-regular fa-eye" style="position:absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); cursor:pointer;"></i>
+                    </div>
+                    <div id="pwdStrength" style="margin-top: 10px;"></div>
+                    <input id="regPassword2" type="password" maxlength="128" placeholder="确认密码" autocomplete="new-password" data-i18n-placeholder="确认密码">
+                </div>
+
+                <div class="auth-input-group" style="margin-top: 8px;">
+                    <div style="font-size: 14px; color: var(--text-secondary); margin: 8px 4px;" data-i18n="头像（可选）">头像（可选）</div>
+                    <div id="avatarChoices" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input id="avatarFile" type="file" accept="image/png,image/jpeg,image/gif" style="display:none;">
+                        <button id="avatarUploadBtn" class="secondary-btn" style="padding: 8px 14px; font-size: 14px;" data-i18n="上传图片">上传图片</button>
+                        <span id="avatarUploadHint" style="font-size:12px; color: var(--text-secondary); margin-left: 8px;"></span>
+                    </div>
+                </div>
+
+                <button id="registerBtn" class="primary-btn" data-i18n="注册并进入平台">注册并进入平台</button>
+
+                <div class="auth-card-links">
+                    <a href="login.html" data-i18n="已有账号？去登录">已有账号？去登录</a>
+                </div>
+
+                <div class="auth-card-footer">
+                    <span data-i18n="注册即代表您同意">注册即代表您同意</span>
+                    <a href="#" data-i18n="苏州大学校园网使用规范">苏州大学校园网使用规范</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

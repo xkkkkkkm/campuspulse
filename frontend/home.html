@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="发现活动 - CampusPulse">发现活动 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=20260402searchpanel3">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" data-i18n-alt="CampusPulse 标志">
+                <div class="header-text" data-i18n="校园活动与组队平台">校园活动与组队平台</div>
+            </div>
+            <button id="homeNotificationBtn" type="button" class="icons" style="position: relative; border: none; background: transparent; padding: 0; cursor: pointer;" aria-label="打开通知中心" data-i18n-label="打开通知中心">
+                <i class="fa-regular fa-bell" style="font-size: 20px;"></i>
+                <span id="homeNotificationBadge" style="display:none; position:absolute; top:-6px; right:-8px; min-width:18px; height:18px; padding:0 5px; border-radius:999px; background: var(--danger-color); color:#fff; font-size:11px; font-weight:700; line-height:18px; text-align:center; box-shadow: 0 6px 16px rgba(255,59,48,0.28);"></span>
+            </button>
+        </div>
+        <div class="search-bar">
+            <div class="home-search-shell">
+                <button class="home-search-icon" id="homeSearchButton" type="button" aria-label="搜索活动和组队" data-i18n-label="搜索活动和组队">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input id="searchInput" type="text" placeholder="搜索活动、组队、地点或关键词..." data-i18n-placeholder="搜索活动、组队、地点或关键词...">
+            </div>
+            <div class="home-search-suggest" id="homeSearchSuggest" hidden="">
+                <div class="home-search-suggest-head">
+                    <div class="home-search-suggest-title" data-i18n="热门搜索">热门搜索</div>
+                    <div class="home-search-suggest-subtitle" data-i18n="点一下就能直接查看相关活动和组队">点一下就能直接查看相关活动和组队</div>
+                </div>
+                <div class="home-search-tags" id="homeSearchTagList"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="home-hero animate-fade-up" style="animation-delay: 0.05s;">
+            <div class="home-hero-shell">
+                <div class="home-hero-copy">
+                    <div class="home-hero-eyebrow">CampusPulse</div>
+                    <h1><span class="home-hero-line" data-i18n="在校园里，找到想参加的事，">在校园里，找到想参加的事，</span><span class="home-hero-line home-hero-line-secondary" data-i18n="也找到愿意同行的人">也找到愿意同行的人</span></h1>
+                    <p data-i18n="讲座、演出、志愿、比赛、考研、自习、交友与项目协作，都能在这里清楚地分流浏览，也能顺手发起一场活动或一支队伍。">讲座、演出、志愿、比赛、考研、自习、交友与项目协作，都能在这里清楚地分流浏览，也能顺手发起一场活动或一支队伍。</p>
+                    <div class="home-hero-pills">
+                        <span class="badge-pill" data-i18n="活动报名">活动报名</span>
+                        <span class="badge-pill" data-i18n="自由组队">自由组队</span>
+                        <span class="badge-pill" data-i18n="即时沟通">即时沟通</span>
+                    </div>
+                    <div class="home-hero-publish">
+                        <div class="home-hero-publish-title" data-i18n="马上开始">马上开始</div>
+                        <div class="home-hero-publish-subtitle" data-i18n="你可以发一场活动，也可以先组一支队伍。">你可以发一场活动，也可以先组一支队伍。</div>
+                        <div class="home-hero-publish-actions">
+                            <a href="publish-activity.html?type=activity" class="home-action-btn home-action-activity">
+                                <span class="home-action-icon"><i class="fa-solid fa-calendar-plus"></i></span>
+                                <span class="home-action-copy">
+                                    <strong data-i18n="发布活动">发布活动</strong>
+                                    <em data-i18n="适合讲座、比赛、志愿与校园招募">适合讲座、比赛、志愿与校园招募</em>
+                                </span>
+                            </a>
+                            <a href="publish-activity.html?type=team" class="home-action-btn home-action-team">
+                                <span class="home-action-icon"><i class="fa-solid fa-user-plus"></i></span>
+                                <span class="home-action-copy">
+                                    <strong data-i18n="发起组队">发起组队</strong>
+                                    <em data-i18n="适合竞赛、学习、交友与项目协作">适合竞赛、学习、交友与项目协作</em>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-hero-entries">
+                    <a href="activity-lobby.html" class="home-entry-card home-entry-activity">
+                        <div class="home-entry-eyebrow">Discovery</div>
+                        <div class="home-entry-kicker" data-i18n="先看内容，再决定参与">先看内容，再决定参与</div>
+                        <div class="home-entry-title" data-i18n="活动发现">活动发现</div>
+                        <div class="home-entry-desc" data-i18n="讲座、演出、志愿、比赛与社团活动，会按时间和标签整理得更清楚，方便你快速找到值得参加的内容。">讲座、演出、志愿、比赛与社团活动，会按时间和标签整理得更清楚，方便你快速找到值得参加的内容。</div>
+                        <div class="home-entry-badges">
+                            <span class="home-entry-badge" data-i18n="报名">报名</span>
+                            <span class="home-entry-badge" data-i18n="收藏">收藏</span>
+                            <span class="home-entry-badge" data-i18n="详情">详情</span>
+                        </div>
+                        <div class="home-entry-footer">
+                            <div class="home-entry-metric"><span id="homeActivityCount">-</span><small data-i18n="场近期可报名">场近期可报名</small></div>
+                            <div class="home-entry-link"><span data-i18n="去看近期活动">去看近期活动 </span><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="team-lobby.html" class="home-entry-card home-entry-team">
+                        <div class="home-entry-eyebrow">Teaming</div>
+                        <div class="home-entry-kicker" data-i18n="先找伙伴，再一起出发">先找伙伴，再一起出发</div>
+                        <div class="home-entry-title" data-i18n="组队协作">组队协作</div>
+                        <div class="home-entry-desc" data-i18n="竞赛、考研、自习、交友和项目协作，都可以先联系发起者，再申请加入，更适合慢慢聊清楚再决定。">竞赛、考研、自习、交友和项目协作，都可以先联系发起者，再申请加入，更适合慢慢聊清楚再决定。</div>
+                        <div class="home-entry-badges">
+                            <span class="home-entry-badge" data-i18n="联系">联系</span>
+                            <span class="home-entry-badge" data-i18n="申请">申请</span>
+                            <span class="home-entry-badge" data-i18n="协作">协作</span>
+                        </div>
+                        <div class="home-entry-footer">
+                            <div class="home-entry-metric"><span id="homeTeamCount">-</span><small data-i18n="支正在招募">支正在招募</small></div>
+                            <div class="home-entry-link"><span data-i18n="去找合适队伍">去找合适队伍 </span><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="recommendSection" class="animate-fade-up" style="animation-delay: 0.08s;">
+            <div class="section-head">
+                <div>
+                    <h2 id="recommendTitle" data-i18n="推荐活动">推荐活动</h2>
+                    <div id="recommendHint" class="section-hint" data-i18n="登录后会结合兴趣与行为给出推荐">登录后会结合兴趣与行为给出推荐</div>
+                </div>
+                <a href="activity-lobby.html" class="section-inline-link" data-i18n="查看全部活动">查看全部活动</a>
+            </div>
+            <div class="activity-list" id="recommendList"></div>
+        </section>
+        <section id="teamRecommendSection" class="animate-fade-up" style="animation-delay: 0.09s;">
+            <div class="section-head">
+                <div>
+                    <h2 id="teamRecommendTitle" data-i18n="推荐组队">推荐组队</h2>
+                    <div id="teamRecommendHint" class="section-hint" data-i18n="优先展示与你兴趣更接近、仍有空位的队伍">优先展示与你兴趣更接近、仍有空位的队伍</div>
+                </div>
+                <a href="team-lobby.html" class="section-inline-link" data-i18n="查看全部组队">查看全部组队</a>
+            </div>
+            <div class="home-team-grid" id="teamRecommendList"></div>
+        </section>
+        <section id="activityOverviewSection" class="animate-fade-up">
+            <div class="section-head">
+                <div>
+                    <h2 id="activitySectionTitle" data-i18n="活动速览">活动速览</h2>
+                    <div id="activitySectionHint" class="section-hint" data-i18n="首页只展示部分精选活动，完整浏览请进入活动大厅">首页只展示部分精选活动，完整浏览请进入活动大厅</div>
+                </div>
+                <a href="activity-lobby.html" class="section-inline-link" data-i18n="进入活动大厅">进入活动大厅</a>
+            </div>
+            <div class="activity-list" id="activityList"></div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html" class="active">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+
+</body></html>

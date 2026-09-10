@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="活动大厅 - CampusPulse">活动大厅 - CampusPulse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="header-brand">
+                 <img src="assets/images/campuspulse.svg" alt="CampusPulse 标志" class="header-logo" style="width: 24px; height: 24px;" data-i18n-alt="CampusPulse 标志">
+                <span style="font-size: 17px; font-weight: 600;" data-i18n="活动大厅">活动大厅</span>
+            </div>
+            <a href="publish-activity.html?type=activity" style="cursor: pointer; font-size: 20px; color: inherit;"><i class="fa-solid fa-plus"></i></a>
+        </div>
+    </header>
+    <main>
+        <div class="animate-fade-up" style="text-align: center; padding: 40px 0;">
+            <h2 id="activityLobbyTitle" style="font-size: 28px; margin-bottom: 12px;" data-i18n="发现值得参加的校园活动">发现值得参加的校园活动</h2>
+            <p id="activityLobbyHint" style="color: var(--text-secondary); font-size: 16px; max-width: 560px; margin: 0 auto 32px;" data-i18n="从讲座、演出、志愿到社团活动，在这里先按分类浏览，再决定报名、收藏或发起自己的活动。">
+                从讲座、演出、志愿到社团活动，在这里先按分类浏览，再决定报名、收藏或发起自己的活动。
+            </p>
+            <div class="stack-card lobby-publish-card" style="max-width: 760px; margin: 0 auto 24px; text-align: left;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap: 14px; flex-wrap: wrap;">
+                    <div>
+                        <div style="font-size: 18px; font-weight: 750; margin-bottom: 6px;" data-i18n="我想发布一个活动">我想发布一个活动</div>
+                        <div class="section-hint" data-i18n="发布讲座、志愿、演出、竞赛通知等校园活动，开放报名并沉淀活动详情页。">发布讲座、志愿、演出、竞赛通知等校园活动，开放报名并沉淀活动详情页。</div>
+                    </div>
+                    <a href="publish-activity.html?type=activity" class="primary-btn" style="width:auto;" data-i18n="发布活动">发布活动</a>
+                </div>
+            </div>
+            <div class="lobby-search-card">
+                <div class="lobby-search-bar">
+                    <div class="lobby-search-input-wrap">
+                        <div class="lobby-search-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input id="activityLobbySearchInput" class="lobby-search-input" type="text" placeholder="搜索活动标题、地点、标签或简介关键词" data-i18n-placeholder="搜索活动标题、地点、标签或简介关键词">
+                    </div>
+                    <div class="lobby-search-actions">
+                        <button id="activityLobbySearchResetBtn" class="lobby-search-ghost" type="button" style="display:none;" data-i18n="清除">清除</button>
+                        <button id="activityLobbySearchBtn" class="lobby-search-submit" type="button" data-i18n="搜索">搜索</button>
+                    </div>
+                </div>
+                <div class="lobby-search-hint" data-i18n="支持和分类一起筛选，例如先选“讲座”，再搜“人工智能”。">支持和分类一起筛选，例如先选“讲座”，再搜“人工智能”。</div>
+            </div>
+            <div id="activityLobbyFilterBar" class="stack-card" style="display:none; margin: 0 auto 24px; max-width: 720px; text-align: left;"></div>
+            <section class="quick-nav" style="margin-bottom: 28px;">
+                <div class="section-head" style="margin-bottom: 14px;">
+                    <h2 style="font-size: 24px; margin-bottom: 0;" data-i18n="浏览分类">浏览分类</h2>
+                    <div class="section-hint" data-i18n="点击分类后，自动筛出对应活动">点击分类后，自动筛出对应活动</div>
+                </div>
+                <div id="activityCategoryList" class="category-icons" style="grid-template-columns: repeat(5, 1fr); row-gap: 18px;"></div>
+            </section>
+            <div class="activity-list" id="activityLobbyList"></div>
+            <div id="activityLoadMoreWrap" style="display:none; margin-top: 22px;">
+                <button id="activityLoadMoreBtn" class="secondary-btn" type="button" data-i18n="查看更多活动">查看更多活动</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav class="bottom-nav">
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i><span data-i18n="发现">
+                发现
+            </span></a>
+            <a href="activity-lobby.html" class="active">
+                <i class="fa-solid fa-calendar-days"></i><span data-i18n="活动">
+                活动
+            </span></a>
+            <a href="team-lobby.html">
+                <i class="fa-solid fa-user-group"></i><span data-i18n="组队">
+                组队
+            </span></a>
+            <a href="messages.html">
+                <i class="fa-solid fa-comment-dots"></i><span data-i18n="消息">
+                消息
+            </span></a>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i><span data-i18n="我的">
+                我的
+            </span></a>
+        </nav>
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+
+</body></html>

@@ -1,0 +1,111 @@
+name: campuspulse
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local-root-demo-password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-campus_pulse}
+      MYSQL_USER: ${DB_USERNAME:-campus_pulse}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-campus_pulse_123}
+      TZ: Asia/Shanghai
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports: ["127.0.0.1:${MYSQL_PORT:-3306}:3306"]
+    volumes: ["mysql_data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD-SHELL", 'MYSQL_PWD="$$MYSQL_PASSWORD" mysql --protocol=TCP -h 127.0.0.1 -u "$$MYSQL_USER" "$$MYSQL_DATABASE" -e "SELECT 1" >/dev/null']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    mem_limit: 1g
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      JAVA_TOOL_OPTIONS: -Duser.timezone=Asia/Shanghai -XX:MaxRAMPercentage=70
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-demo}
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-campus_pulse}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      DB_USERNAME: ${DB_USERNAME:-campus_pulse}
+      DB_PASSWORD: ${DB_PASSWORD:-campus_pulse_123}
+      APP_SECURITY_TOKEN_SECRET: ${APP_SECURITY_TOKEN_SECRET:-local-development-token-secret-change-me}
+      APP_SECURITY_EMAIL_SECRET: ${APP_SECURITY_EMAIL_SECRET:-local-development-email-secret}
+      APP_SECURITY_EMAIL_DEV_MODE: ${APP_SECURITY_EMAIL_DEV_MODE:-true}
+      APP_SECURITY_EMAIL_FROM: ${APP_SECURITY_EMAIL_FROM:-no-reply@example.com}
+      APP_CORS_ALLOWED_ORIGINS: ${APP_CORS_ALLOWED_ORIGINS:-http://127.0.0.1:8125,http://localhost:8125}
+      APP_ADMIN_USERNAME: ${APP_ADMIN_USERNAME:-}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-}
+      APP_ADMIN_EMAIL: ${APP_ADMIN_EMAIL:-}
+      MAIL_HOST: ${MAIL_HOST:-localhost}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USERNAME: ${MAIL_USERNAME:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_AUTH: ${MAIL_AUTH:-true}
+      MAIL_STARTTLS: ${MAIL_STARTTLS:-true}
+      SUPPORT_AGENT_ENABLED: ${SUPPORT_AGENT_ENABLED:-true}
+      SUPPORT_AGENT_URL: http://support-agent:8001
+      SUPPORT_AGENT_TOKEN: ${SUPPORT_AGENT_TOKEN:-local-development-support-token-change-me}
+      SUPPORT_LLM_ENABLED: ${SUPPORT_LLM_ENABLED:-false}
+      SUPPORT_MAX_DAILY_GENERATIONS: ${SUPPORT_MAX_DAILY_GENERATIONS:-100}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      support-agent:
+        condition: service_healthy
+    ports: ["127.0.0.1:${BACKEND_PORT:-8080}:8080"]
+    volumes: ["uploads_data:/app/uploads"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health/readiness >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 5s
+      start_period: 40s
+      retries: 30
+    mem_limit: 768m
+    stop_grace_period: 30s
+  support-agent:
+    build:
+      context: ./support-agent
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      SUPPORT_AGENT_TOKEN: ${SUPPORT_AGENT_TOKEN:-local-development-support-token-change-me}
+      SUPPORT_LLM_ENABLED: ${SUPPORT_LLM_ENABLED:-false}
+      SUPPORT_LLM_API_KEY: ${SUPPORT_LLM_API_KEY:-}
+      SUPPORT_LLM_BASE_URL: ${SUPPORT_LLM_BASE_URL:-https://api.openai.com/v1}
+      SUPPORT_LLM_MODEL: ${SUPPORT_LLM_MODEL:-}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/healthz',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      start_period: 15s
+      retries: 20
+    mem_limit: 384m
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=32m"]
+    security_opt: ["no-new-privileges:true"]
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8125
+      TARGET: http://backend:8080
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports: ["127.0.0.1:${FRONTEND_PORT:-8125}:8125"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8125/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 128m
+    read_only: true
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  mysql_data:
+  uploads_data:
