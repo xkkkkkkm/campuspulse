@@ -1,4 +1,4 @@
-FROM maven:3.9-eclipse-temurin-17 AS build
+FROM maven:3-eclipse-temurin-26 AS build
 WORKDIR /workspace
 COPY backend/pom.xml backend/pom.xml
 RUN --mount=type=cache,target=/root/.m2 mvn -B -ntp -f backend/pom.xml dependency:go-offline -DskipTests
