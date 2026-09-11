@@ -4,6 +4,8 @@
 
 CampusPulse is a university course project for discovering campus activities and finding teammates. It combines a bilingual web interface, a Java API, MySQL persistence, and an optional offline recommendation pipeline. This repository presents the implemented system and its engineering limits for source review and local evaluation.
 
+![CampusPulse product overview: discover activities, build teams, exchange messages and get support. Students, organizers and administrators share a bilingual platform. Model-generated support is optional and requires a provider API key.](docs/assets/product-overview.en.svg)
+
 ## What you can do
 
 - Browse, filter, search and favorite activities; register and track approval status.

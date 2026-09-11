@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="1032" viewBox="0 0 1200 1032" role="img" aria-labelledby="title description" xml:lang="zh-CN">
+  <title id="title">CampusPulse 产品总览</title>
+  <desc id="description">校园活动与组队平台：发现并报名活动、创建和加入队伍、发送消息以及获取客服帮助。学生、组织者和管理员共用中英文平台。大模型客服为可选功能，需要部署者配置模型 API Key。</desc>
+  <!-- Editable vector artwork. Uses the existing CampusPulse pulse mark. -->
+  <defs>
+    <symbol id="compass" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="12"/>
+      <path d="m21 11-3 7-7 3 3-7 7-3Z"/>
+    </symbol>
+    <symbol id="people" viewBox="0 0 32 32">
+      <circle cx="13" cy="10" r="4"/>
+      <path d="M4 27v-3a9 9 0 0 1 18 0v3M22 6a4 4 0 0 1 0 8M25 19a7 7 0 0 1 3 6v2"/>
+    </symbol>
+    <symbol id="chat" viewBox="0 0 32 32">
+      <path d="M5 5h22v17H14l-9 6V5Z"/>
+      <path d="M10 11h12M10 16h8"/>
+    </symbol>
+    <symbol id="help" viewBox="0 0 32 32">
+      <path d="M5 18v-3a11 11 0 0 1 22 0v8a6 6 0 0 1-6 6h-3"/>
+      <rect x="3" y="15" width="6" height="9" rx="3"/>
+      <rect x="23" y="15" width="6" height="9" rx="3"/>
+    </symbol>
+
+  </defs>
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif">
+    <rect x="1" y="1" width="1198" height="1030" rx="28" fill="#F5F8FC" stroke="#D8E2EE" stroke-width="2"/>
+    <path d="M28 1h1144a27 27 0 0 1 27 27v244H1V28A27 27 0 0 1 28 1Z" fill="#102A48"/>
+    <rect x="48" y="34" width="52" height="52" rx="14" fill="#0071E3"/>
+    <path d="M56 61h9l5-11 8 21 5-10h9" fill="none" stroke="#FFF" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+
+<text x="114" y="70" font-size="32" font-weight="700" fill="#FFFFFF" >CampusPulse</text>
+<text x="1152" y="66" font-size="18" font-weight="600" fill="#B8CDE4" text-anchor="end" letter-spacing="1.1">校园活动发现与组队协作</text>
+<text x="48" y="151" font-size="46" font-weight="700" fill="#FFFFFF" >发现热爱，与伙伴一起参与。</text>
+<text x="48" y="193" font-size="23" font-weight="400" fill="#D3E2F3" >从发现校园活动，到找到队友、交流协作与获取帮助。</text>
+<rect x="48" y="218" width="186" height="34" rx="17" fill="#244566"/>
+<text x="141.0" y="241" font-size="18" font-weight="600" fill="#EFF7FF" text-anchor="middle">中文 / English</text>
+<rect x="246" y="218" width="250" height="34" rx="17" fill="#244566"/>
+<text x="371.0" y="241" font-size="18" font-weight="600" fill="#EFF7FF" text-anchor="middle">Docker 本地运行</text>
+<path d="M938 234h47l13-21 17 35 17-31 11 17h109" fill="none" stroke="#61CDB4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 发现校园活动 -->
+<g transform="translate(48 304)">
+<rect width="540" height="236" rx="20" fill="#FFFFFF" stroke="#D9E3EF"/>
+<rect x="24" y="24" width="48" height="48" rx="14" fill="#EAF3FF"/>
+<use xlink:href="#compass" x="32" y="32" width="32" height="32" fill="none" stroke="#0868CF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="57" font-size="30" font-weight="700" fill="#17314F" >发现校园活动</text>
+<text x="24" y="109" font-size="22" font-weight="400" fill="#42556B" >浏览、筛选、收藏和报名活动。</text>
+<text x="24" y="141" font-size="22" font-weight="400" fill="#42556B" >基于规则，推荐适合你的活动。</text>
+<rect x="24" y="171" width="130" height="38" rx="10" fill="#EAF3FF"/>
+<text x="89.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">兴趣标签</text>
+<rect x="164" y="171" width="138" height="38" rx="10" fill="#EAF3FF"/>
+<text x="233.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">搜索活动</text>
+<rect x="312" y="171" width="138" height="38" rx="10" fill="#EAF3FF"/>
+<text x="381.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">我的收藏</text>
+</g>
+
+    <!-- 找到组队伙伴 -->
+<g transform="translate(612 304)">
+<rect width="540" height="236" rx="20" fill="#FFFFFF" stroke="#D9E3EF"/>
+<rect x="24" y="24" width="48" height="48" rx="14" fill="#E8F7F0"/>
+<use xlink:href="#people" x="32" y="32" width="32" height="32" fill="none" stroke="#167451" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="57" font-size="30" font-weight="700" fill="#17314F" >找到组队伙伴</text>
+<text x="24" y="109" font-size="22" font-weight="400" fill="#42556B" >创建队伍、申请加入与审核申请。</text>
+<text x="24" y="141" font-size="22" font-weight="400" fill="#42556B" >管理队伍成员，支持转让队长。</text>
+<rect x="24" y="171" width="138" height="38" rx="10" fill="#E8F7F0"/>
+<text x="93.0" y="196" font-size="19" font-weight="600" fill="#167451" text-anchor="middle">创建队伍</text>
+<rect x="172" y="171" width="138" height="38" rx="10" fill="#E8F7F0"/>
+<text x="241.0" y="196" font-size="19" font-weight="600" fill="#167451" text-anchor="middle">申请加入</text>
+<rect x="320" y="171" width="138" height="38" rx="10" fill="#E8F7F0"/>
+<text x="389.0" y="196" font-size="19" font-weight="600" fill="#167451" text-anchor="middle">审核申请</text>
+</g>
+
+    <!-- 保持交流协作 -->
+<g transform="translate(48 564)">
+<rect width="540" height="236" rx="20" fill="#FFFFFF" stroke="#D9E3EF"/>
+<rect x="24" y="24" width="48" height="48" rx="14" fill="#EAF3FF"/>
+<use xlink:href="#chat" x="32" y="32" width="32" height="32" fill="none" stroke="#0868CF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="57" font-size="30" font-weight="700" fill="#17314F" >保持交流协作</text>
+<text x="24" y="109" font-size="22" font-weight="400" fill="#42556B" >发送消息和私有图片附件。</text>
+<text x="24" y="141" font-size="22" font-weight="400" fill="#42556B" >保留聊天历史，接收通知与提醒。</text>
+<rect x="24" y="171" width="104" height="38" rx="10" fill="#EAF3FF"/>
+<text x="76.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">私聊</text>
+<rect x="138" y="171" width="146" height="38" rx="10" fill="#EAF3FF"/>
+<text x="211.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">队伍群聊</text>
+<rect x="294" y="171" width="146" height="38" rx="10" fill="#EAF3FF"/>
+<text x="367.0" y="196" font-size="19" font-weight="600" fill="#0868CF" text-anchor="middle">活动群聊</text>
+</g>
+
+    <!-- 获取客服帮助 -->
+<g transform="translate(612 564)">
+<rect width="540" height="236" rx="20" fill="#FFFFFF" stroke="#D9E3EF"/>
+<rect x="24" y="24" width="48" height="48" rx="14" fill="#FFF3DC"/>
+<use xlink:href="#help" x="32" y="32" width="32" height="32" fill="none" stroke="#875816" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="57" font-size="30" font-weight="700" fill="#17314F" >获取客服帮助</text>
+<text x="24" y="109" font-size="22" font-weight="400" fill="#42556B" >查阅带引用的指南，回看客服会话，</text>
+<text x="24" y="141" font-size="22" font-weight="400" fill="#42556B" >或提交工单，由管理员处理。</text>
+<rect x="24" y="171" width="444" height="38" rx="10" fill="#FFF3DC"/>
+<text x="246.0" y="196" font-size="19" font-weight="600" fill="#875816" text-anchor="middle">大模型可选 · 部署者配置 API Key</text>
+</g>
+
+    <!-- Typical roles; these are not an exhaustive permission matrix. -->
+<rect x="48" y="832" width="1104" height="144" rx="20" fill="#E7EFF8"/>
+<text x="72" y="865" font-size="16" font-weight="700" fill="#516882" letter-spacing="1.4">一个平台，三类使用场景</text>
+<text x="72" y="906" font-size="24" font-weight="700" fill="#17314F" >学生</text>
+<text x="72" y="940" font-size="21" font-weight="400" fill="#42556B" >发现活动与参与组队</text>
+<path d="M414 888v61" stroke="#C7D7E7"/>
+<text x="438" y="906" font-size="24" font-weight="700" fill="#17314F" >组织者</text>
+<text x="438" y="940" font-size="21" font-weight="400" fill="#42556B" >发布活动与审核报名</text>
+<path d="M780 888v61" stroke="#C7D7E7"/>
+<text x="804" y="906" font-size="24" font-weight="700" fill="#17314F" >管理员</text>
+<text x="804" y="940" font-size="21" font-weight="400" fill="#42556B" >内容管理与客服处理</text>
+<text x="600" y="1009" font-size="18" font-weight="400" fill="#516882" text-anchor="middle">活动报名与加入队伍是独立操作，各自使用申请与审批流程。</text>
+  </g>
+</svg>
