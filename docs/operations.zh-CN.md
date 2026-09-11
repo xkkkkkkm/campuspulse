@@ -6,24 +6,25 @@
 
 ## 本地容器演示
 
-安装支持 `up --wait` 的 Docker Compose v2，启动 Docker 后执行：
+宿主机安装支持 `up --wait` 的 Docker Compose v2 和 Python 3.11+。容器镜像内已安装 Java、Maven、Node.js 和客服所需的 Python 3.13，容器演示不要求宿主机另装这些运行时。启动 Docker 后执行：
 
 ```bash
 python3 tools/dev.py init
 python3 tools/dev.py up
 ```
 
-脚本生成本地 `.env` 和不同的随机应用密钥，构建并启动 MySQL、后端、前端。首次运行需要下载镜像和依赖；数据库与图片保存在命名数据卷中。
+脚本在项目根目录生成 `.env` 和不同的随机应用密钥，构建并启动 MySQL、Java 后端、Node 前端代理和私有 LangGraph 客服四个服务。首次运行需要下载镜像和依赖；数据库与图片保存在命名数据卷中。
 
 | 服务 | 默认地址 | 用途 |
 | --- | --- | --- |
 | 前端 | `http://127.0.0.1:8125` | 页面及同源 API 代理 |
 | API | `http://127.0.0.1:8080` | 业务 API、健康检查、开发接口文档 |
 | MySQL | `127.0.0.1:3306` | 本地数据库连接及可选训练 |
+| 客服服务 | 仅 Compose 内网：`http://support-agent:8001` | 由 Java 调用的私有 LangGraph 服务，不发布宿主机端口 |
 
-宿主机端口默认只绑定回环地址。可在 `.env` 修改 `FRONTEND_PORT`、`BACKEND_PORT`、`MYSQL_PORT`；同时让 `APP_CORS_ALLOWED_ORIGINS` 与实际浏览器来源一致。已有进程环境变量优先于 `.env`。不要让容器后端与原生后端同时占用同一端口。
+宿主机端口默认只绑定回环地址。不要让容器后端与原生后端同时占用同一端口。例如本机 MySQL 已占用 3306、其他网站占用 8080，可在 `.env` 设置 `MYSQL_PORT=13306`、`BACKEND_PORT=18080`。如果还将 `FRONTEND_PORT` 改为 `18125`，同时设置 `APP_CORS_ALLOWED_ORIGINS=http://127.0.0.1:18125,http://localhost:18125`，再执行 `python3 tools/dev.py up`，浏览器打开 `http://127.0.0.1:18125`。这些配置修改宿主机端口，Compose 服务间仍使用原容器端口。
 
-默认 `demo` profile 对每个数据库只初始化一次。演示账号为 `linzhixia / demo12345`、`org / org123`、`admin / admin123`。它们是公开示例，不是真实生产流量。重启不会恢复初始数据，也不会刷新活动日期。开发邮箱模式会在发送验证码响应中返回验证码，由界面展示，便于没有 SMTP 时体验。
+默认 `demo` profile 对每个数据库只初始化一次。演示账号为 `linzhixia / demo12345`、`org / org123`、`admin / admin123`。它们是公开示例，不是真实生产流量。重启不会恢复初始数据，也不会刷新活动日期。`APP_SECURITY_EMAIL_DEV_MODE=true` 时，填写符合流程要求的邮箱后点击**发送验证码**：注册页通过弹窗显示验证码；邮箱登录、找回密码及个人资料的账号变更流程，在附近的提示文字中显示“开发码”。发送验证码 API 的响应含 `data.devCode`，例如 `POST /api/auth/email/send`。这个模式不发送 SMTP 邮件，验证码应在页面查看。邮箱登录和找回密码仍要求该邮箱已绑定账号。
 
 ```bash
 # 停止容器，保留数据库和图片
@@ -36,9 +37,24 @@ python3 tools/dev.py run docker compose logs --tail=100 backend
 
 `docker compose down -v` 会删除命名数据卷及其内容，不是日常停止命令。需要全新演示数据时，可使用未占用的 Compose 项目名和不同宿主机端口，保留原项目。
 
+## 环境文件与配置生效
+
+`.env.example` 是默认配置样例；`python3 tools/dev.py init` 生成工具实际读取的根目录私有 `.env`。密钥保存在这个本地文件中。工具按数据解析 `KEY=value`，去除成对的外层引号，不执行 shell 代码，也不展开变量引用。推荐用单引号包住字面值，例如 `SUPPORT_LLM_API_KEY='your-provider-key'`，尤其是包含 `$` 或 `#` 的值；不要执行 `source .env`。
+
+通过工具启动命令时，已有进程环境变量会覆盖选定文件中的同名值，空值也会覆盖。修改文件却不生效时，清除旧的已导出变量，或使用具有预期环境的新终端。`SERVER_PORT`、`PORT`、`TARGET`、`DB_URL`、`CAMPUS_DB_*` 等工具默认值只在变量不存在时设置；显式值可以覆盖端口和数据库的自动映射。Compose 只向容器传入 [docker-compose.yml](../docker-compose.yml) 中声明的配置，不会传入文件里的所有变量。
+
+`--env-file` 选择一个文件，不会将 `.env.prod`、`.env.verify` 与 `.env` 合并，也不会自动创建另一个 Compose 项目；用 `-p` 隔离容器与数据卷。启动、状态、日志、停止操作均需保持相同的文件与项目名，例如：
+
+```bash
+python3 tools/dev.py --env-file .env.prod run docker compose --env-file .env.prod -p campuspulse-prod ps
+python3 tools/dev.py --env-file .env.prod run docker compose --env-file .env.prod -p campuspulse-prod logs --tail=100 support-agent
+```
+
+编辑 `.env` 后，再运行 `python3 tools/dev.py up`。Compose 会重新创建配置发生变化的服务；`docker compose restart` 只用旧环境重启原容器。命名的正式项目应重新执行[生产配置](#生产配置)中的完整 `up` 命令。原生进程则用 Ctrl+C 停止，再通过相同 `--env-file` 的工具命令启动。
+
 ## 原生开发
 
-安装 JDK 17、Maven 3.9+、Node.js 22+、Python 3.11+ 和 MySQL 8。也可只通过 Docker 运行 MySQL：
+安装 JDK 17、Maven 3.9+、Node.js 22+、供辅助工具使用的 Python 3.11+ 和 MySQL 8。原生运行 LangGraph 客服还需要 Python 3.13。使用自建 MySQL 时不必安装 Docker；也可只通过 Docker 运行 MySQL：
 
 ```bash
 python3 tools/dev.py init
@@ -52,7 +68,17 @@ python3 tools/dev.py backend
 python3 tools/dev.py frontend
 ```
 
-工具将 `.env` 当作数据解析，不通过 shell 执行文件内容，并为 Java、Node 代理和 Python 训练映射端口及数据库配置。直接运行 `mvn`、`node` 不会自动读取 `.env`。使用自建 MySQL 时，配置 `DB_URL`、`DB_USERNAME`、`DB_PASSWORD`，先创建数据库；启动后由 Flyway 建表及升级。
+要在本机运行 LangGraph，再打开第三个终端并进入项目根目录。首次创建虚拟环境、安装依赖，然后通过同一工具启动，让 Java 和 Python 读取相同的根目录 `.env` 及 `SUPPORT_AGENT_TOKEN`：
+
+```bash
+python3.13 -m venv support-agent/.venv
+support-agent/.venv/bin/python -m pip install -r support-agent/requirements.txt
+python3 tools/dev.py run support-agent/.venv/bin/python -m uvicorn app.main:app --app-dir support-agent --host 127.0.0.1 --port 8001 --workers 1 --no-access-log
+```
+
+Windows 用 `py -3.13 -m venv support-agent/.venv` 创建环境，将 `support-agent/.venv/bin/python` 换成 `support-agent/.venv/Scripts/python.exe`；辅助工具的 `python3` 可按需换成 `py -3.11`。Java 默认连接 `SUPPORT_AGENT_URL=http://127.0.0.1:8001`，须与客服监听地址一致。如果 8001 被占用，同时修改 Uvicorn 的 `--port` 和共用文件中的 `SUPPORT_AGENT_URL`，再重新启动这两个进程。Compose 内部主机名 `support-agent` 不适用于原生 Java。用 `curl --fail http://127.0.0.1:8001/healthz` 检查客服服务，详见[中文客服说明](../support-agent/README.zh-CN.md)。未启动该进程时，Java 仍可能用本地知识兜底回答，但不会运行 LangGraph 或调用模型。
+
+工具为 Java、Node 代理和 Python 训练映射端口及数据库配置。直接运行 `mvn`、`node` 或 `uvicorn` 不会自动读取根目录 `.env`。使用自定义文件时，在各终端的 `backend`、`frontend` 或 `run` 之前统一添加 `--env-file`。自建 MySQL 的 `DB_URL`、`DB_USERNAME`、`DB_PASSWORD` 可放入该文件或进程环境，先创建数据库；启动后由 Flyway 建表及升级。如果训练也使用外部数据库，按[中文模型说明](../ml/README.zh-CN.md)单独设置匹配的 `CAMPUS_DB_*`；工具不会从自定义 JDBC `DB_URL` 中解析训练配置。
 
 服务页面本身不需要 npm 安装；开发检查和浏览器测试需要。不要用无限制的静态服务公开项目根目录，其中包含配置、源码及开发产物。
 
@@ -86,6 +112,8 @@ python3 tools/dev.py --env-file .env.prod init --profile prod
 python3 tools/dev.py --env-file .env.prod run docker compose --env-file .env.prod -p campuspulse-prod up --build -d --wait --wait-timeout 240
 ```
 
+SMTP 使用服务商提供的 SMTP 用户名和密码/授权码，与模型 API key 无关。`MAIL_STARTTLS=true` 启用 SMTP 连接上的 STARTTLS（常见端口 587），不会启用 465 端口的隐式 TLS/SMTPS，也不强制 STARTTLS 协商成功。现有 Compose 没有隐式 TLS 或强制 STARTTLS 的开关。选择服务商支持的 SMTP/STARTTLS 地址；其他传输要求需要显式扩展应用与 Compose 配置。后端运行在 Docker 中时，`MAIL_HOST=localhost` 指向后端容器本身，应改成真实 SMTP 主机；`APP_SECURITY_EMAIL_FROM` 应填写服务商允许的发件人。
+
 后端拒绝弱密钥、相同的签名/验证密钥和开启的开发验证码模式。这些检查不验证 SMTP 的真实投递。接入真实用户前，使用选定服务商验证注册、找回密码及账号变更流程。健康检查不依赖邮件连接，因此 `UP` 不代表邮件可用。
 
 为前端配置 HTTPS 反向代理，保持数据库/API 端口私有。反向代理需关闭 SSE 缓冲并允许长连接。当前应用按 socket 对端 IP 限流，多个用户经过内置代理后可能共用一个额度。公开使用前需设计可信代理和边界限流，不能直接信任用户传入的 `X-Forwarded-For`。
@@ -94,7 +122,9 @@ python3 tools/dev.py --env-file .env.prod run docker compose --env-file .env.pro
 
 ## 可选集成与模型
 
-Compose 会启动本地 LangGraph 服务，无需模型密钥就能检索双语指南并返回引用。`tools/dev.py init` 生成共享 `SUPPORT_AGENT_TOKEN`，该服务不向宿主机发布端口。若要启用生成，在私有环境中设置 `SUPPORT_LLM_ENABLED=true`、`SUPPORT_LLM_BASE_URL`、`SUPPORT_LLM_MODEL` 和 `SUPPORT_LLM_API_KEY` 后重启。默认不指定模型。已登录用户按用户限流，并受 `SUPPORT_MAX_DAILY_GENERATIONS`（默认 100）限制；匿名只使用检索。启用生成后，问题和受限的近期历史会发送给配置的服务商，并尽力脱敏。详见[中文客服说明](../support-agent/README.zh-CN.md)。真实外部模型和 SMTP 尚未联调，Dify 配置不再使用。
+Compose 会启动本地 LangGraph 服务，无需模型密钥就能检索双语指南并返回引用。`tools/dev.py init` 生成内部共享密钥 `SUPPORT_AGENT_TOKEN`，它与模型服务商 API key 是两种凭据，Java 和客服服务须使用相同的内部密钥。该服务不向宿主机发布端口。启用模型生成回答请按首页[完整配置步骤](../README.zh-CN.md#启用模型生成客服可选)操作，再按前文重新创建配置过的服务。默认不指定模型。
+
+已登录用户按用户限流，并受 `SUPPORT_MAX_DAILY_GENERATIONS`（默认 100）限制；匿名只使用检索。启用生成后，问题和受限的近期历史会发送给配置的服务商，并尽力脱敏。原生启动、限制及测试详见[中文客服说明](../support-agent/README.zh-CN.md)。真实外部模型和 SMTP 尚未联调。当前实现不读取历史 Dify 配置，应配置 LangGraph 服务。
 
 推荐训练是手动离线命令，不是常驻服务。[中文模型说明](../ml/README.zh-CN.md)提供只读试运行、资源边界、发布与回滚步骤。没有模型也可完整运行应用；分数缺失或版本过期时使用规则推荐。
 
@@ -122,7 +152,22 @@ node --test tools/tests/proxy.test.cjs
 python3 -m unittest discover -s tools/tests
 ```
 
-`tools/smoke_test.py` 检查匿名队伍浏览，使用公开学生账号登录并读取个人资料、活动和推荐，同时验证普通账号不能访问管理员 API。运行 `python3 tools/dev.py run python3 tools/smoke_test.py`，默认地址为 `http://127.0.0.1:8125`，可通过 `--base-url` 覆盖。它需要未修改的演示密码，不覆盖完整业务，也不用于证明正式部署可用。浏览器和模型检查见各自目录 README。
+`tools/smoke_test.py` 检查匿名队伍浏览，使用公开学生账号登录并读取个人资料、活动和推荐，同时验证普通账号不能访问管理员 API。运行 `python3 tools/dev.py run python3 tools/smoke_test.py`，默认地址为 `http://127.0.0.1:8125`，可通过 `--base-url` 覆盖。它需要未修改的演示密码，不覆盖完整业务，也不用于证明正式部署可用。虽然不创建业务样本，登录会更新账号锁定计数并写入认证审计，因此并非严格只读。浏览器和模型检查见各自目录 README。
+
+运行前按检查类型选择目标：
+
+| 检查 | 目标与写入行为 |
+| --- | --- |
+| Java `tools/dev.py test` | 在自建的临时 MySQL Testcontainers 数据库写入样本；宿主机需 JDK 17、Maven 和 Docker，不需运行演示栈 |
+| 前端单元/模拟浏览器测试、辅助工具/客服单元测试 | 本地或模拟服务，不写真实应用样本，不调用付费模型 |
+| `tools/smoke_test.py` | 运行中的演示环境；仅登录计数与认证审计写入 |
+| `tools/support_smoke_test.py` | 可丢弃的运行中演示环境；写入会话轮次并在清理时删除自己的会话，登录审计保留 |
+| `tools/media_smoke_test.py` | 可丢弃的运行中演示环境；留下上传图片和私聊消息 |
+| 前端 `e2e:live` | 可丢弃的运行中演示环境；留下已回复/关闭的客服工单和浏览器行为记录，创建客服会话并尝试清理 |
+| `ml/tests/integration_publication.py` | 显式指定的可丢弃 MySQL；写模型版本/分数、临时切换 active 版本，再恢复并清理测试版本 |
+| `tools/integration_backup.py` | 可丢弃的 Compose 源项目和新恢复项目；写入图片/消息，暂停源后端并保留备份与项目 |
+
+真实服务测试栈应保持 `SUPPORT_LLM_ENABLED=false`，在运行客服或真实浏览器检查前让配置生效。启用生成后，这些测试的登录用户问题可能调用已配置的真实服务商。删除测试会话不会撤回服务商请求或登录审计写入。
 
 readiness 包含数据库健康状态，liveness 独立检查进程存活。指标仅通过私有 API 端口暴露，前端代理不转发。API 输出 ECS 结构化控制台日志及用于关联日志的 `X-Request-ID` 响应头。部署环境应收集日志，并避免导出密钥、Authorization 头、验证码或私聊正文。健康接口不暴露详细内部信息。开发接口文档为 `/api-docs-ui` 和 `/v3/api-docs`，在 `prod` 中关闭。
 
@@ -130,10 +175,13 @@ readiness 包含数据库健康状态，liveness 独立检查进程存活。指�
 
 以下额外检查会写入测试样本，并在备份时暂停测试后端。必须使用**全新、可丢弃**的 Compose 项目及独立环境，不要对现有个人或正式数据库运行。下一节普通备份命令仍是日常运维入口。
 
-先执行 `python3 tools/dev.py --env-file .env.verify init` 创建独立文件，在其中设置 `MYSQL_PORT=23306`、`BACKEND_PORT=28080`、`FRONTEND_PORT=28125`、`APP_CORS_ALLOWED_ORIGINS=http://127.0.0.1:28125,http://localhost:28125`。如果端口或下述项目名已被使用，应另选。保留 `demo` profile 和该隔离库自己的演示账号。
+先执行 `python3 tools/dev.py --env-file .env.verify init` 创建独立文件，在其中设置 `MYSQL_PORT=23306`、`BACKEND_PORT=28080`、`FRONTEND_PORT=28125`、`APP_CORS_ALLOWED_ORIGINS=http://127.0.0.1:28125,http://localhost:28125`。如果端口或下述项目名已被使用，应另选。保留 `demo` profile、该隔离库自己的演示账号，以及 `SUPPORT_LLM_ENABLED=false`。
 
 ```bash
 python3 tools/dev.py --env-file .env.verify run docker compose --env-file .env.verify -p campuspulse-verify up --build -d --wait --wait-timeout 240
+
+# 写入客服会话，检查历史与归属，然后删除自己的会话
+python3 tools/support_smoke_test.py --base-url http://127.0.0.1:28125
 
 # 创建图片与私聊，检查访问权限和重试幂等
 python3 tools/media_smoke_test.py --base-url http://127.0.0.1:28125
@@ -181,7 +229,7 @@ python3 tools/backup.py restore backups/prod-snapshot --project campuspulse-rest
 
 ## 保留策略与升级
 
-清理任务大约每小时运行一次：删除六个月前的通知、过期七天以上的邮箱验证码、十二个月前的行为/事件/提醒投递记录，每类每次最多 500 条。业务、聊天和审计历史保留。长期数据增长、旧模型版本及上传空间需要运维管理；当前不是完整的数据保留或彻底删除方案。
+有上限的清理任务大约每小时运行一次。通用任务删除六个月前的通知、十二个月前的行为/事件/提醒投递记录，每类每次最多 500 条。其验证码清理阈值是过期七天，但独立的认证任务已会删除过期一天以上的验证码、两天前的发送保护记录及 90 天前的认证审计，每类每次最多 1000 条。客服任务每次删除最多 100 个不活跃满 30 天且无有效轮次租约的会话，以及最多 1000 条超过 90 天的生成额度记录。用户也可选择或删除自己的历史会话；每个账号最多 50 个会话，每个会话最多 50 轮。这些任务不删除业务记录、私聊/群聊及管理操作审计。长期数据增长、旧模型版本及上传空间需要运维管理；当前不是完整的数据保留或彻底删除方案。
 
 升级版本前先备份。Flyway 会校验并执行新迁移，不应修改已应用的迁移或关闭检查绕过错误。旧应用不一定兼容新数据库结构；应在隔离项目中演练恢复，不能假设数据库降级可逆。
 
@@ -189,7 +237,9 @@ python3 tools/backup.py restore backups/prod-snapshot --project campuspulse-rest
 
 | 现象 | 优先检查 |
 | --- | --- |
-| 端口已占用 | 修改相应 `.env` 端口并重启，同时更新前端来源 |
+| 端口已占用 | 修改对应环境文件的端口与浏览器来源，再执行该项目的 `up` 命令重新创建容器 |
+| 修改密钥/配置后没变化 | 核对 `--env-file`、项目名及旧的已导出变量；用 `up` 重新创建容器，或重启原生进程 |
+| 原生客服一直使用兜底 | 单独启动客服进程，核对回环地址、健康检查和共用的 `SUPPORT_AGENT_TOKEN` |
 | 修改密码后数据库拒绝访问 | 已有 MySQL 卷保留原密码；恢复匹配配置或正式轮换数据库凭据 |
 | `prod` 启动失败 | 根据日志检查随机密钥、开发验证码开关和首位管理员参数 |
 | Compose 一直未就绪 | 检查服务状态、后端/MySQL 日志、Docker 内存及依赖下载 |

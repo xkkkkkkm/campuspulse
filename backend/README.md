@@ -6,9 +6,9 @@ The backend is a Java 17 Spring Boot modular monolith using Spring MVC, JDBC, My
 
 ## Run
 
-The complete Docker setup needs Docker Compose v2 and Python 3.11+: from the repository root, run `python3 tools/dev.py init` and `python3 tools/dev.py up`.
+All commands below run from the repository root. On Windows, see [operations](../docs/operations.md) for Python command equivalents. The complete Docker setup needs a running Docker engine, recent Compose v2 supporting `up --wait`, and Python 3.11+: run `python3 tools/dev.py init` and `python3 tools/dev.py up`. This starts MySQL, the API, the frontend and the private support agent.
 
-For a native development API, install JDK 17, Maven 3.9+ and Python 3.11+, and start only the database:
+For a native development API, install JDK 17, Maven 3.9+ and Python 3.11+. The following uses Docker Compose to provide MySQL 8, then starts Java in the foreground:
 
 ```bash
 python3 tools/dev.py init
@@ -16,7 +16,9 @@ python3 tools/dev.py run docker compose up -d --wait mysql
 python3 tools/dev.py backend
 ```
 
-In a second terminal, `python3 tools/dev.py frontend` starts the Node frontend proxy (Node.js 22+). The environment helper reads `.env` as data and passes values to subprocesses. A direct Maven invocation does not load `.env` automatically.
+In a second terminal at the repository root, `python3 tools/dev.py frontend` starts the Node frontend proxy (Node.js 22+). The environment helper reads `.env` as data and passes values to subprocesses. A direct Maven invocation does not load `.env` automatically. For an existing MySQL server, create the database and configure `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` instead of starting the MySQL container; see [native development](../docs/operations.md#native-development).
+
+These native commands start only MySQL, Java and the frontend. For cited LangGraph support answers, also follow the [support agent's local startup instructions](../support-agent/README.md#run-locally) in another terminal. Java and the agent must share `SUPPORT_AGENT_TOKEN`; set `SUPPORT_AGENT_ENABLED=true` for Java and use `SUPPORT_AGENT_URL=http://127.0.0.1:8001` for the default local agent address. Keep the agent on loopback. If it is unavailable, Java uses its local fallback and human support tickets remain available.
 
 The API listens on [http://127.0.0.1:8080](http://127.0.0.1:8080) by default. In development, interactive OpenAPI documentation is at [http://127.0.0.1:8080/api-docs-ui](http://127.0.0.1:8080/api-docs-ui), with JSON at `/v3/api-docs`. The `prod` profile disables both. Liveness and readiness endpoints are `/actuator/health/liveness` and `/actuator/health/readiness`; readiness includes the database. Metrics at `/actuator/metrics` are available on the private API port and are not forwarded by the frontend proxy.
 
@@ -36,6 +38,8 @@ The default `demo` profile installs public example accounts and synthetic fixtur
 - SSE emitters, stream tickets and general request limits are local to one JVM. Do not scale this deployment to multiple API replicas without shared coordination.
 
 ## Tests
+
+Use JDK 17, Maven 3.9+ and Python 3.11+, and run from the repository root:
 
 ```bash
 # Unit tests only

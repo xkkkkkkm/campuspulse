@@ -6,6 +6,7 @@ Start with the current implementation documents:
 
 | Document | Purpose |
 | --- | --- |
+| [Model/API key setup](../README.md#enable-model-generated-support-optional) / [模型与密钥配置](../README.zh-CN.md#启用模型生成客服可选) | Deployer settings, applying changes and distinguishing generated answers from local guides |
 | [Portfolio overview](portfolio-overview.md) | Reviewer path, scope, evidence and contribution boundaries |
 | [Architecture](architecture.md) | Runtime topology, modules, persistence and deployment limits |
 | [API reference](api.md) | Routes, access rules, request examples and chat protocol |
