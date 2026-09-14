@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="22" viewBox="0 0 160 22" role="img" aria-labelledby="title">
+  <title id="title">Interface languages: English and Simplified Chinese</title>
+  <rect width="160" height="22" rx="4" fill="#334155"/>
+  <path d="M70 0h86a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H70Z" fill="#167451"/>
+  <g fill="#FFFFFF" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="11">
+    <text x="35" y="15">languages</text>
+    <text x="115" y="15">EN / zh-CN</text>
+  </g>
+</svg>

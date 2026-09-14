@@ -1,0 +1,59 @@
+name: Bug report / 问题反馈
+description: Report a reproducible problem with CampusPulse / 反馈可复现的问题
+title: "[Bug / 问题] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or 简体中文 are welcome. Search existing issues before submitting.
+        请先搜索已有 Issue，可使用英文或简体中文填写。
+
+        Do not paste `.env` files, API keys, passwords, tokens, private messages or personal data. Sanitize logs and screenshots.
+        请勿粘贴 `.env` 文件、API Key、密码、令牌、私聊或个人信息；日志和截图请先脱敏。
+
+        The default demo shows email codes on screen and uses local support retrieval. Real SMTP and external model delivery remain unverified.
+        默认演示在页面显示验证码，客服使用本地检索；真实 SMTP 与外部模型尚未联调。
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction / 最小复现步骤
+      description: Include the page or command, demo role, relevant sample input and numbered steps. / 请写明页面或命令、演示角色、必要样本和操作步骤。
+      placeholder: |
+        1. Start the demo using… / 使用……启动演示
+        2. Sign in as… and open… / 以……角色登录并打开……
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / 预期行为
+      description: What should happen after those steps? / 完成上述步骤后应该出现什么结果？
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / 实际行为
+      description: Describe what happened and include the exact error if available. / 描述实际结果，如有报错请附准确内容。
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 运行环境
+      description: Include what applies; do not attach your environment file. / 填写相关项，不要附环境配置文件。
+      placeholder: |
+        Commit or download date / 提交版本或下载日期:
+        OS and version / 操作系统及版本:
+        Docker Compose or native / 容器或原生运行:
+        Browser and version; UI language / 浏览器及版本、界面语言:
+        Relevant Docker, Java, Node or Python versions / 相关运行时版本:
+        Demo or prod profile; changed non-secret settings / 运行模式、修改过的非敏感配置:
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Additional evidence / 补充证据（可选）
+      description: Sanitized logs, screenshots, request IDs or a small example may help. / 可附脱敏日志、截图、请求 ID 或小型样本。

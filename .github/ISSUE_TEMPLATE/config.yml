@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions / 使用交流
+    url: https://github.com/xkkkkkkm/campuspulse/discussions
+    about: Ask setup and usage questions or exchange ideas. / 交流安装、使用问题与想法。
+  - name: Run and troubleshoot / 运行与排障
+    url: https://github.com/xkkkkkkm/campuspulse/blob/main/docs/operations.md
+    about: Setup, ports, native development and troubleshooting; Chinese guide linked inside. / 安装、端口、原生开发与排障，内含中文入口。
+  - name: Contribution guide / 贡献指南
+    url: https://github.com/xkkkkkkm/campuspulse/blob/main/CONTRIBUTING.md
+    about: First contributions and checks by module; English and Chinese. / 首次贡献方向与分模块验证，中英双语。

@@ -6,6 +6,8 @@ Start with the current implementation documents:
 
 | Document | Purpose |
 | --- | --- |
+| [Product tour](product-tour.md) / [中文产品体验](product-tour.zh-CN.md) | A short walkthrough of the demo, user roles and support behavior |
+| [Contributing](../CONTRIBUTING.md) / [中文贡献指南](../CONTRIBUTING.zh-CN.md) | First contributions, relevant checks and feedback channels |
 | [Model/API key setup](../README.md#enable-model-generated-support-optional) / [模型与密钥配置](../README.zh-CN.md#启用模型生成客服可选) | Deployer settings, applying changes and distinguishing generated answers from local guides |
 | [Portfolio overview](portfolio-overview.md) | Reviewer path, scope, evidence and contribution boundaries |
 | [Architecture](architecture.md) | Runtime topology, modules, persistence and deployment limits |

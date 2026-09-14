@@ -1,10 +1,30 @@
 # CampusPulse 校园活动智能推荐与组队平台
 
-[English](README.md) · [运行与运维](docs/operations.zh-CN.md) · [架构](docs/architecture.md) · [接口](docs/api.md) · [项目审阅指南](docs/portfolio-overview.md)
+[![CI](https://github.com/xkkkkkkm/campuspulse/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xkkkkkkm/campuspulse/actions/workflows/ci.yml)
+[![MIT License](docs/assets/license-mit.svg)](LICENSE)
+[![Languages: English and 简体中文](docs/assets/languages.svg)](README.md)
 
-CampusPulse 源于高校合作课程项目，围绕校园活动发现、报名与组队协作实现了一套可运行的系统。本仓库提供双语界面、Java API、MySQL 数据库以及可选的离线推荐训练程序，供代码审阅和本地体验；文档以现有实现为准。
+[English](README.md) · [快速开始](#下载运行) · [产品体验](docs/product-tour.zh-CN.md) · [架构](docs/architecture.md) · [参与贡献](CONTRIBUTING.zh-CN.md)
+
+**发现校园活动，找到组队伙伴，让交流持续发生。**
+
+CampusPulse 是一个支持中英文的校园活动与组队协作平台，可通过 Docker Compose 在本地运行。你可以浏览活动、管理申请、与参与者交流，并从带引用的客服指南中获取帮助。项目采用 **Spring Boot、MySQL 和 LangGraph**，可选接入大模型客服与离线推荐训练。
+
+项目最初源于高校合作课程开发，现公开供本地使用、学习与源码审阅。实现依据和工程限制见[项目审阅指南](docs/portfolio-overview.md)。
 
 ![CampusPulse 产品总览：发现活动、组队协作、消息交流与客服帮助，覆盖学生、组织者和管理员三类使用场景。平台支持中英文；大模型客服为可选功能，需要部署者配置模型 API Key。](docs/assets/product-overview.zh-CN.svg)
+
+**开始体验：**[运行本地演示](#下载运行)、阅读[产品体验指南](docs/product-tour.zh-CN.md)，或[下载源码 ZIP](https://github.com/xkkkkkkm/campuspulse/archive/refs/heads/main.zip)。核心功能和本地客服指南无需模型 API Key。固定版本与说明见 [Releases](https://github.com/xkkkkkkm/campuspulse/releases) 和[更新记录](CHANGELOG.md)。
+
+## 界面预览
+
+以下截图来自实际运行的本地演示，页面已滚动到活动和队伍列表。示例日期与可用状态取决于演示数据库；这里不提供托管的在线演示。
+
+| 发现活动 | 寻找队友 |
+| --- | --- |
+| [![中文活动大厅：分类筛选、活动封面与报名状态](docs/assets/screenshots/activities.zh-CN.png)](docs/assets/screenshots/activities.zh-CN.png) | [![中文组队大厅：招募说明、队伍类型与成员人数](docs/assets/screenshots/teams.zh-CN.png)](docs/assets/screenshots/teams.zh-CN.png) |
+
+点击图片可放大。[英文 README](README.md#see-the-app) 展示相同页面的英文版本。
 
 ## 已实现能力
 
@@ -172,5 +192,17 @@ python3 tools/dev.py run python3 tools/smoke_test.py
 ```
 
 会写入测试数据的图片、模型发布和恢复检查见[隔离测试环境](docs/operations.zh-CN.md#隔离集成演练)。浏览器测试见[前端说明](frontend/README.md)，模型测试见[模型说明](ml/README.zh-CN.md)。这些命令用于复现验证，不代表所有环境均已通过；当前完成情况和限制见[整改状态与验证记录](docs/remediation-status.zh-CN.md)。历史课程评估、设计和管理材料仅保留为过程背景，不作为当前实现证据。
+
+## 参与项目
+
+如果 CampusPulse 对你有帮助，欢迎点一个 **Star**，方便以后找到，也让更多人发现它。体验后欢迎分享顺利之处和遇到的问题。
+
+- [交流使用问题或分享想法](https://github.com/xkkkkkkm/campuspulse/discussions)。
+- [报告可复现的缺陷或提出功能建议](https://github.com/xkkkkkkm/campuspulse/issues/new/choose)。
+- [参与贡献](CONTRIBUTING.zh-CN.md)：完善启动说明、优化中英文文案，或修复范围明确的问题并提供相关验证。
+
+欢迎使用中文或英文反馈与贡献。模型配置、接口和运维文档统一收录在[文档索引](docs/README.md)。
+
+## 项目来源与许可证
 
 项目代码采用 [MIT License](LICENSE)，第三方资源遵循[各自许可证](THIRD_PARTY_NOTICES.md)。仓库不将合作成果全部归于个人，也不暗示学校背书。个人贡献应以提交记录和可审阅改动为依据。课程旧二进制、真实密钥、用户上传及生成文件不进入源码发布。

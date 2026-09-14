@@ -1,10 +1,30 @@
 # CampusPulse
 
-[简体中文](README.zh-CN.md) · [Run and operate](docs/operations.md) · [Architecture](docs/architecture.md) · [API](docs/api.md) · [Review guide](docs/portfolio-overview.md)
+[![CI](https://github.com/xkkkkkkm/campuspulse/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xkkkkkkm/campuspulse/actions/workflows/ci.yml)
+[![MIT License](docs/assets/license-mit.svg)](LICENSE)
+[![Languages: English and 简体中文](docs/assets/languages.svg)](README.zh-CN.md)
 
-CampusPulse is a university course project for discovering campus activities and finding teammates. It combines a bilingual web interface, a Java API, MySQL persistence, and an optional offline recommendation pipeline. This repository presents the implemented system and its engineering limits for source review and local evaluation.
+[简体中文](README.zh-CN.md) · [Quick start](#download-and-run) · [Product tour](docs/product-tour.md) · [Architecture](docs/architecture.md) · [Contribute](CONTRIBUTING.md)
+
+**Discover campus activities. Find teammates. Keep the conversation going.**
+
+CampusPulse is a bilingual campus event and team collaboration platform you can run locally with Docker Compose. Browse activities, manage applications, chat with participants and get help from cited support guides. Built with **Spring Boot, MySQL and LangGraph**, with optional model-generated support and offline recommendation training.
+
+Originally developed as a collaborative university course project, it is shared here for local use, learning and source review. See the [review guide](docs/portfolio-overview.md) for implementation evidence and engineering limits.
 
 ![CampusPulse product overview: discover activities, build teams, exchange messages and get support. Students, organizers and administrators share a bilingual platform. Model-generated support is optional and requires a provider API key.](docs/assets/product-overview.en.svg)
+
+**Try it:** [run the local demo](#download-and-run), follow the [product tour](docs/product-tour.md), or [download the source ZIP](https://github.com/xkkkkkkm/campuspulse/archive/refs/heads/main.zip). Core features and local support guides work without a model API key. Versioned snapshots and notes are available in [Releases](https://github.com/xkkkkkkm/campuspulse/releases) and the [changelog](CHANGELOG.md).
+
+## See the app
+
+Screenshots from the running local demo, scrolled to the activity and team listings. Sample dates and availability depend on the demo database; these are not a hosted live demo.
+
+| Discover activities | Find teammates |
+| --- | --- |
+| [![English activity hub with categories, translated activity covers and registration status](docs/assets/screenshots/activities.en.png)](docs/assets/screenshots/activities.en.png) | [![English team hub with recruitment details, team types and member counts](docs/assets/screenshots/teams.en.png)](docs/assets/screenshots/teams.en.png) |
+
+Click either image to enlarge. The [Chinese README](README.zh-CN.md#界面预览) shows the same pages in Simplified Chinese.
 
 ## What you can do
 
@@ -173,6 +193,16 @@ python3 tools/dev.py run python3 tools/smoke_test.py
 ```
 
 Fixture-writing media, model publication and recovery checks have a separate [isolated test setup](docs/operations.md#isolated-integration-exercises). Browser checks are documented in [frontend/README.md](frontend/README.md); model tests and their Python dependencies are documented in [ml/README.md](ml/README.md). Backend integration tests use real MySQL through Testcontainers. Course-era assessments and design sources are retained as historical context, separate from the current implementation claims.
+
+## Get involved
+
+If CampusPulse is useful to you, a **Star** helps you find it again and lets others discover it. Try the demo and share what worked or what got in your way.
+
+- [Ask a usage question or share an idea](https://github.com/xkkkkkkm/campuspulse/discussions).
+- [Report a reproducible bug or propose a feature](https://github.com/xkkkkkkm/campuspulse/issues/new/choose).
+- [Make a contribution](CONTRIBUTING.md): improve setup instructions, refine English/Chinese wording, or fix a scoped issue with relevant verification.
+
+Contributions and feedback in English or Chinese are welcome. Model setup, API details and operating instructions are indexed in [the documentation](docs/README.md).
 
 ## Project provenance and license
 
